@@ -33,7 +33,7 @@
                     <div class="<?=$profile?>" onclick="location.href='<?=$profileClick?>';">Профиль</div>
                     <div class="<?=$class?>" onclick="location.href='<?=$classClick?>';">Мой класс</div>
                     <div class="<?=$schedule?>" onclick="location.href='<?=$scheduleClick?>';">Расписание</div>
-                    <div class="<?=$news?>" onclick="location.href='<?=$newsClick?>';">Нововсти</div>
+                    <div class="<?=$news?>" onclick="location.href='<?=$newsClick?>';">Новости</div>
                     <div class="<?=$event?>" onclick="location.href='<?=$eventClick?>';">Мероприятия</div>
                     <div class="styled">Тема</div>
                     <script>
