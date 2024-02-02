@@ -24,7 +24,18 @@
     ?>
     <!-- основной контент страницы -->
     <div class="mainContent">
-        
+        <div class="profile">
+            <div class="user">
+                <div class="avatar">
+                    
+                </div>
+                <div class="man">
+
+                </div>
+            </div>
+        </div>
+        <div class="decider"></div>
+        <div class="events"></div>
     </div>
     <!-- Продолжение основы -->
     <?php
