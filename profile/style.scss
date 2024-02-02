@@ -55,6 +55,14 @@
             font-style: italic;
           }
         }
+        .decider {
+          box-sizing: border-box;
+          width: 900px;
+          border-bottom: solid 1px var(--accent-color);
+          height: 452px;
+          border-radius: 50px;
+          position: absolute;
+        }
       }
     }
 }

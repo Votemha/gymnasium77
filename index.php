@@ -20,29 +20,42 @@
         $scheduleClick = "";
         $newsClick = "";
         $eventClick = "event";
-        include 'general/mainPanel1.php'
+        include 'general/mainPanel1.php';
+
+        $email = 'admin@mail.ru';
+
+        $res = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email'");
+        $row = $res->fetch_assoc();
     ?>
     <!-- основной контент страницы -->
     <div class="mainContent">
         <div class="profile">
             <div class="user">
                 <div class="avatar">
-                    <img src="img/avatar.png" alt="">
+                    <?php
+                        if ($row['photo'] == NULL) {
+                    ?>
+                        <img src="img/avatar.png" alt="">
+                    <?php
+                        } else {
+                    ?>
+                        <img src="<?=$row['photo']?>" alt="">
+                    <?php
+                        }
+                    ?>
                 </div>
                 <div class="man">
-                    <p class="name">Иванов Иван Иванович</p>
-                    <span class="nameDescr">Ученик 11А класса</span>
+                    <p class="name"><?=$row['surname']?> <?=$row['name']?> <?=$row['patronymic']?></p>
+                    <span class="nameDescr">Ученик <?=$row['class']?> класса</span>
                     <br/>
                     <br/>
                     <br/>
                     <p class="descriptionUser">Описание:</p>
-                    <span class="description">Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit. 
-                        Maecenas vulputate cursus sagittis. </span>
+                    <span class="description"><?=$row['description']?></span>
                 </div>
+                <div class="decider"></div>
             </div>
         </div>
-        <div class="decider"></div>
         <div class="events"></div>
     </div>
     <!-- Продолжение основы -->
