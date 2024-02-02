@@ -23,7 +23,9 @@
         include 'general/mainPanel1.php'
     ?>
     <!-- основной контент страницы -->
-    <div class="mainContent">что-то поменялось</div>
+    <div class="mainContent">
+        
+    </div>
     <!-- Продолжение основы -->
     <?php
         include 'general/mainPanel2.php'
