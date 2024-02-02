@@ -3,6 +3,7 @@
   --prop-color: #FFFFFF;
   --accent-color: #D9D9D9;
   --text-color: #000000;
+  --accent2-color: #B3B3B3;
 }
 
 .mainContent {
@@ -13,9 +14,56 @@
           box-sizing: border-box;
   color: var(--text-color);
 }
+.mainContent .profile .user {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .mainContent .profile .user .avatar {
   width: 460px;
   height: 424px;
   background-color: var(--accent-color);
   border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+.mainContent .profile .user .man {
+  position: absolute;
+  border-radius: 50px;
+  right: 0;
+  width: 770px;
+  height: 424;
+  background-color: var(--prop-color);
+  z-index: 1;
+  padding: 50px 40px;
+  padding-left: 370px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.mainContent .profile .user .man .name {
+  color: var(--text-color);
+  font-size: 28px;
+  font-weight: 600;
+}
+.mainContent .profile .user .man .nameDescr {
+  color: var(--text-color);
+  font-size: 28px;
+}
+.mainContent .profile .user .man .descriptionUser {
+  color: var(--text-color);
+  font-size: 20px;
+}
+.mainContent .profile .user .man .description {
+  color: var(--text-color);
+  font-size: 20px;
+  font-style: italic;
 }

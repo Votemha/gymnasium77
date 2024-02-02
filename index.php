@@ -27,10 +27,18 @@
         <div class="profile">
             <div class="user">
                 <div class="avatar">
-                    
+                    <img src="img/avatar.png" alt="">
                 </div>
                 <div class="man">
-
+                    <p class="name">Иванов Иван Иванович</p>
+                    <span class="nameDescr">Ученик 11А класса</span>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p class="descriptionUser">Описание:</p>
+                    <span class="description">Lorem ipsum dolor sit amet, 
+                        consectetur adipiscing elit. 
+                        Maecenas vulputate cursus sagittis. </span>
                 </div>
             </div>
         </div>

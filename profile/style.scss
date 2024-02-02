@@ -3,6 +3,7 @@
     --prop-color: #FFFFFF;
     --accent-color: #D9D9D9;
     --text-color: #000000;
+    --accent2-color: #B3B3B3;
   }
 .mainContent {
     width: 900px;
@@ -12,11 +13,47 @@
     color: var(--text-color);
     .profile {
       .user {
+        position: relative;
+        display: flex;
         .avatar {
           width: 460px;
           height: 424px;
           background-color: var(--accent-color);
           border-radius: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2;
+        }
+        .man {
+          position: absolute;
+          border-radius: 50px;
+          right: 0;
+          width: 770px;
+          height: 424;
+          background-color: var(--prop-color);
+          z-index: 1;
+          padding: 50px 40px;
+          padding-left: 370px;
+          box-sizing: border-box;
+          .name {
+            color: var(--text-color);
+            font-size: 28px;
+            font-weight: 600;
+          }
+          .nameDescr {
+            color: var(--text-color);
+            font-size: 28px;
+          }
+          .descriptionUser {
+            color: var(--text-color);
+            font-size: 20px;
+          }
+          .description {
+            color: var(--text-color);
+            font-size: 20px;
+            font-style: italic;
+          }
         }
       }
     }

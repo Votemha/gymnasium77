@@ -16,6 +16,8 @@
         $dateRu = 'ВС - ';
     }
     $dateRu = $dateRu . date('j.n.y');
+
+    include 'db.php';
 ?>
 
 
