@@ -228,5 +228,5 @@ a {
   position: absolute;
   left: 20px;
   background-color: var(--bg-color);
-  z-index: 2;
+  z-index: 3;
 }

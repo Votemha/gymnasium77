@@ -1,1 +1,3 @@
 <a href="https://www.flaticon.com/ru/free-icons/" title=" иконки"> иконки от Smashicons - Flaticon</a>
+
+<a href="https://www.flaticon.com/ru/free-icons/" title="карандаш иконки">Карандаш иконки от Freepik - Flaticon</a>

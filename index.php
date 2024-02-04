@@ -27,6 +27,7 @@
         $res = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email'");
         $row = $res->fetch_assoc();
     ?>
+
     <!-- основной контент страницы -->
     <div class="mainContent">
         <div class="profile">
@@ -45,19 +46,55 @@
                     ?>
                 </div>
                 <div class="man">
-                    <p class="name"><?=$row['surname']?> <?=$row['name']?> <?=$row['patronymic']?></p>
-                    <span class="nameDescr">Ученик <?=$row['class']?> класса</span>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <p class="descriptionUser">Описание:</p>
-                    <span class="description"><?=$row['description']?></span>
+                     <button class="pencil"><img src="../img/pencil.png" alt=""></button>
+                    <form action="" method="post">
+                        <p class="name"><input id="name" name="name" type="text" value="<?=$row['surname']?> <?=$row['name']?> <?=$row['patronymic']?>" style="outline:none;" readonly></p>
+                        <span class="nameDescr">Ученик <input id="cl" name="cl" type="text" value="<?=$row['class']?>" style="outline:none;" readonly> класса</span>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p class="descriptionUser">Описание:</p>
+                        <span class="description"><textarea id="descr" name="descr" type="text" style="outline:none;" readonly><?=$row['description']?></textarea></span>
+                        <button class="buttonOk" style="display: none">Сохранить</button> <div id="cancel" style="display: none;">X</div>
+                    </form>
                 </div>
                 <div class="decider"></div>
             </div>
         </div>
         <div class="events"></div>
     </div>
+
+    <script>
+        const pencil = document.querySelector(".pencil");
+        const name = document.querySelector("#name");
+        const cl = document.querySelector("#cl");
+        const descr = document.querySelector("#descr");
+        const buttonOk = document.querySelector(".buttonOk");
+        const cancel = document.querySelector("#cancel");
+        function change(e) {
+            e.style.outline = '2px solid';
+            e.readOnly = false;
+        }
+        function unChange(e) {
+            e.style.outline = 'none';
+            e.readOnly = true;
+        }
+        pencil.addEventListener("click", function(e) {
+            change(name)
+            change(cl)
+            change(descr)
+            buttonOk.style.display = "block"
+            cancel.style.display = "block"
+	    });
+        cancel.addEventListener("click", function(e) {
+            unChange(name)
+            unChange(cl)
+            unChange(descr)
+            buttonOk.style.display = "none"
+            cancel.style.display = "none"
+	    });
+    </script>
+
     <!-- Продолжение основы -->
     <?php
         include 'general/mainPanel2.php'

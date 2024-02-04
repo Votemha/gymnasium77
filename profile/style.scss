@@ -36,23 +36,65 @@
           padding: 50px 40px;
           padding-left: 370px;
           box-sizing: border-box;
+            button {
+              position: absolute;
+              right: 10px;
+              cursor: pointer;
+              img {
+                background-color: var(--prop-color);
+                width: 24px;
+              }
+            }
           .name {
+            input {
             color: var(--text-color);
+            background-color: transparent;
             font-size: 28px;
             font-weight: 600;
+            }
           }
           .nameDescr {
             color: var(--text-color);
             font-size: 28px;
+            input {
+              width: 45px;
+              color: var(--text-color);
+              background-color: transparent;
+              font-size: 28px;
+              margin-top: 5px;
+            }
           }
           .descriptionUser {
             color: var(--text-color);
             font-size: 20px;
           }
           .description {
+            textarea {
             color: var(--text-color);
+            background-color: transparent;
             font-size: 20px;
             font-style: italic;
+            height: 150px;
+            resize: none;
+            }
+          }
+          .buttonOk {
+            position: absolute;
+            bottom: 20px;
+            right: 60px;
+            width: 200px;
+            height: 30px;
+            font-size: 17px;
+            border-radius: 30px;
+            color: var(--text-color);
+            background-color: var(--accent-color);
+          }
+          #cancel {
+            position: absolute;
+            bottom: 25px;
+            right: 40px;
+            cursor: pointer;
+            color: red;
           }
         }
         .decider {

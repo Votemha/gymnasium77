@@ -49,8 +49,18 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.mainContent .profile .user .man .name {
+.mainContent .profile .user .man button {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.mainContent .profile .user .man button img {
+  background-color: var(--prop-color);
+  width: 24px;
+}
+.mainContent .profile .user .man .name input {
   color: var(--text-color);
+  background-color: transparent;
   font-size: 28px;
   font-weight: 600;
 }
@@ -58,14 +68,42 @@
   color: var(--text-color);
   font-size: 28px;
 }
+.mainContent .profile .user .man .nameDescr input {
+  width: 45px;
+  color: var(--text-color);
+  background-color: transparent;
+  font-size: 28px;
+  margin-top: 5px;
+}
 .mainContent .profile .user .man .descriptionUser {
   color: var(--text-color);
   font-size: 20px;
 }
-.mainContent .profile .user .man .description {
+.mainContent .profile .user .man .description textarea {
   color: var(--text-color);
+  background-color: transparent;
   font-size: 20px;
   font-style: italic;
+  height: 150px;
+  resize: none;
+}
+.mainContent .profile .user .man .buttonOk {
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
+  width: 200px;
+  height: 30px;
+  font-size: 17px;
+  border-radius: 30px;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+}
+.mainContent .profile .user .man #cancel {
+  position: absolute;
+  bottom: 25px;
+  right: 40px;
+  cursor: pointer;
+  color: red;
 }
 .mainContent .profile .user .decider {
   -webkit-box-sizing: border-box;
