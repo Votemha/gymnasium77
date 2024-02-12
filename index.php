@@ -72,7 +72,7 @@
         const buttonOk = document.querySelector(".buttonOk");
         const cancel = document.querySelector("#cancel");
         function change(e) {
-            e.style.outline = '2px solid';
+            e.style.outline = '2px solid rgba(0, 0, 0, 0.5)';
             e.readOnly = false;
         }
         function unChange(e) {
