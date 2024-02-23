@@ -154,6 +154,11 @@
         box-sizing: border-box;
         border-radius: 50px;
         cursor: pointer;
+        &:hover {
+          border-radius: 50px;
+          box-shadow: 0 0 10px 0px #0000001d;
+          transition: 0.25s;
+        }
         span {
           background-color: var(--accent-color);
           width: 35px;
@@ -170,11 +175,6 @@
           font-size: 20px;
         }
       }
-      &:hover {
-        border-radius: 50px;
-        box-shadow: 0 0 10px 0px #0000001d;
-        transition: 0.25s;
-      }
     }
 
 
@@ -185,7 +185,7 @@
       top: 0%;
       width: 100vw;
       height: 100dvh;
-      background-color: #0000007c;
+      background-color: #0000009b;
       z-index: 2;
       display: flex;
       justify-content: center;
@@ -271,6 +271,45 @@
             font-size: 20px;
             background-color: var(--scrollbar-color);
             padding: 5px;
+          }
+        }
+      }
+    }
+
+
+    // все посты
+    .allPosts {
+      .post {
+        margin-top: 30px;
+        background-color: var(--prop-color);
+        border-radius: 30px;
+        position: relative;
+        .datePost {
+          font-size: 13px;
+          left: 25px;
+          top: 10px;
+          color: var(--text-color);
+          opacity: 0.5;
+          position: absolute;
+        }
+        .text {
+          padding: 40px;
+          border-radius: 30px;
+          border-bottom: solid 1px var(--accent-color);
+        }
+        .like {
+          display: flex;
+          padding: 10px 30px;
+          span {
+            font-size: 30px;
+            padding: 0 20px;
+            cursor: pointer;
+          }
+          p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
           }
         }
       }

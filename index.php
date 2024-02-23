@@ -63,9 +63,9 @@
                     <button class="pencil"><img src="../img/pencil.png" alt="изменить данные профиля" title="изменить данные профиля"></button>
                     
                     <form action="" method="post">
-                        <div class="name"><input id="surname" name="surname" type="text" value="<?=$row['surname']?>" style="outline:none;" readonly onkeydown="this.style.width = ((this.value.length + 2) * 20) + 'px';">
-                        <input id="name" name="name" type="text" value="<?=$row['name']?>" style="outline:none;" readonly onkeydown="this.style.width = ((this.value.length + 2) * 20) + 'px';"></div>
-                        <span class="nameDescr">Ученик <input id="cl" name="cl" type="text" value="<?=$row['class']?>" style="outline:none;" onkeydown="this.style.width = ((this.value.length + 2) * 20) + 'px';" readonly> класса</span>
+                        <div class="name"><input id="surname" name="surname" type="text" value="<?=$row['surname']?>" style="outline:none;" readonly>
+                        <input id="name" name="name" type="text" value="<?=$row['name']?>" style="outline:none;" readonly></div>
+                        <span class="nameDescr">Ученик <input id="cl" name="cl" type="text" value="<?=$row['class']?>" style="outline:none;" onkeydown="this.style.width = ((this.value.length + 1) * 20) + 'px';" readonly> класса</span>
                         <br/>
                         <br/>
                         <br/>
@@ -118,7 +118,7 @@
                 <span>+</span><p>Новый пост...</p>
             </div>
 
-            <form action="" method="POST">
+            <form action="backend/posts.php" method="POST">
                 <div class="popupPosts" style="display:none;">
                     <!-- основной контент постов -->
                     <div class="content">
@@ -137,17 +137,47 @@
                             <div class="photo">
                                 <img src="img/photo.png" alt="добавить фото" title="добавить фото">
                             </div>
-                            <div class="publish">
+                            <button class="publish">
                                 опубликовать
-                            </div>
+                            </button>
                         </div>
+                        <input type="text" name="datePop" value="<?=$dateRu?>" style="display:none">
                     </div>
                 </div>
             </form>
-            <div class="allPosts"></div>
+            
+            <?php
+                $posts = mysqli_query($mysql, "SELECT * FROM `posts` WHERE `email` = '$email'");
+                $posts = mysqli_fetch_All($posts);
+
+                for($i=count($posts)-1; $i>=0; $i--) {
+            ?>
+            <div class="allPosts">
+                <div class="post">
+                    <div class="datePost">
+                        <?=$posts[$i][1]?> 
+                    </div>
+                    <div class="text">
+                        <p>
+                            <?=$posts[$i][2]?>    
+                        </p>
+                    </div>
+                    <div class="like">
+                        <span>+</span>
+                        <p><?=$posts[$i][5]?></p>
+                        <span>-</span>
+                    </div>
+                </div>
+            </div>
+            <?php
+                }
+            ?>
         </div>
 
     </div>
+
+
+    
 
 
 
