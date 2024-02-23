@@ -1,20 +1,35 @@
+// переменные
 :root {
     --bg-color: #E6ECF2;
     --prop-color: #FFFFFF;
     --accent-color: #D9D9D9;
     --text-color: #000000;
     --accent2-color: #B3B3B3;
-  }
+    --scrollbar-color: #dedee8;
+    --scrollbar-thumb-color: #4f5764;
+}
+
+// миксины
+@mixin inputStyle {
+  color: var(--text-color);
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+// основной контен
 .mainContent {
     width: 900px;
     height: 300px;
     border-radius: 50px;
     box-sizing: border-box;
     color: var(--text-color);
+    // основные стили пользователя
     .profile {
       .user {
         position: relative;
         display: flex;
+        // аватарка
         .avatar {
           width: 460px;
           height: 424px;
@@ -25,6 +40,7 @@
           align-items: center;
           z-index: 2;
         }
+        // сам человек
         .man {
           position: absolute;
           border-radius: 50px;
@@ -45,39 +61,55 @@
                 width: 24px;
               }
             }
+            // имя
           .name {
+            display: flex;
+            box-sizing: border-box;
+            flex-flow: row wrap;
             input {
-            color: var(--text-color);
-            background-color: transparent;
-            font-size: 28px;
-            font-weight: 600;
+              min-width: 100px;
+              @include inputStyle;
+              font-size: 28px;
+              font-weight: 600;
             }
           }
+          // класс
           .nameDescr {
             color: var(--text-color);
             font-size: 28px;
+            margin-left: 2px;
             input {
-              width: 45px;
-              color: var(--text-color);
-              background-color: transparent;
+              width: 55px;
+              @include inputStyle;
               font-size: 28px;
               margin-top: 5px;
             }
           }
+          // описание
           .descriptionUser {
             color: var(--text-color);
             font-size: 20px;
+            margin-left: 2px;
           }
           .description {
             textarea {
-            color: var(--text-color);
-            background-color: transparent;
+            @include inputStyle;
+            border-radius: 30px;
+            padding: 5px;
             font-size: 20px;
             font-style: italic;
-            height: 150px;
+            height: 100px;
             resize: none;
+              &::-webkit-scrollbar {
+                width: 7px;
+                background-color: var(--scrollbar-color);
+              }
+              &::-webkit-scrollbar-thumb {
+                background-color: var(--scrollbar-thumb-color);
+              }
             }
           }
+          // кнопка сохранения
           .buttonOk {
             position: absolute;
             bottom: 20px;
@@ -89,6 +121,7 @@
             color: var(--text-color);
             background-color: var(--accent-color);
           }
+          // кнопка отмены
           #cancel {
             position: absolute;
             bottom: 25px;
@@ -97,6 +130,7 @@
             color: red;
           }
         }
+        // разделитель
         .decider {
           box-sizing: border-box;
           width: 900px;
@@ -107,4 +141,42 @@
         }
       }
     }
+
+    // посты
+    .posts {
+      .newPosts {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: var(--prop-color);
+        margin-top: 50px;
+        padding: 30px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        cursor: pointer;
+        span {
+          background-color: var(--accent-color);
+          width: 35px;
+          height: 35px;
+          box-sizing: border-box;
+          border-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+        }
+        p {
+          margin-left: 20px;
+          font-size: 20px;
+        }
+      }
+      &:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 10px 0px #0000001d;
+        transition: 0.25s;
+      }
+    }
+
+
+
 }

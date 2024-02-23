@@ -15,7 +15,12 @@
     } elseif (date('l') == 'Sunday') {
         $dateRu = 'ВС - ';
     }
-    $dateRu = $dateRu . date('j.n.y');
+    
+    if (intdiv(date('n'), 10) != 0){
+        $dateRu = $dateRu . date('j.n.y');
+    } else{
+        $dateRu = $dateRu . date('j.0n.y');
+    }
 
     include 'db.php';
 ?>

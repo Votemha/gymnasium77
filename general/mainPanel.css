@@ -4,6 +4,9 @@
   --accent-color: #D9D9D9;
   --text-color: #000000;
   --accent2-color: #B3B3B3;
+  --scrollbar-color: #dedee8;
+  --scrollbar-thumb-color: #4f5764;
+  --post-color: #BECDDD;
 }
 
 * {
@@ -12,6 +15,13 @@
   margin: 0;
   font-family: Montserrat;
   scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  width: 15px;
+  background-color: var(--scrollbar-color);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
 }
 
 @font-face {
@@ -78,6 +88,11 @@ a {
   margin-top: 10px;
   cursor: pointer;
 }
+.main .nav .navContent div:hover {
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2666666667);
+          box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2666666667);
+}
 .main .nav .navContent div:nth-child(1) {
   margin-top: 0px;
 }
@@ -85,6 +100,11 @@ a {
   background: var(--accent-color);
   font-weight: 500;
   cursor: auto;
+}
+.main .nav .navContent .this:hover {
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0);
+          box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0);
 }
 .main .schedule {
   margin-top: 40px;
