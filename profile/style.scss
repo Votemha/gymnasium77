@@ -178,5 +178,102 @@
     }
 
 
+    // посты
+    .popupPosts {
+      position: fixed;
+      left: 0;
+      top: 0%;
+      width: 100vw;
+      height: 100dvh;
+      background-color: #0000007c;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // основной контент
+      .content {
+        width: clamp(200px, 50vw, 988px);
+        height: clamp(246px, 80vh, 900px);
+        box-sizing: border-box;
+        background-color: var(--prop-color);
+        border-radius: 30px;
+        // заглавие
+        .title {
+          background-color: var(--bg-color);
+          height: 100px;
+          border-radius: 30px 30px 0 0;
+          border-bottom: solid 1px var(--accent-color);
+          box-sizing: border-box;
+          position: relative;
+          
+          .cancelPosts {
+            position: absolute;
+            right: 10px;
+            font-size: 22px;
+            color: rgb(168, 32, 32);
+            cursor: pointer;
+            padding: 10px;
+          }
+          // дата
+          .date {
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 15px;
+          }
+          // текст заглавия
+          .textTitle {
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 26px;
+            font-weight: 500;
+          }
+        }
+        // сообщение
+        .message {
+          width: clamp(200px, 50vw, 988px);
+          box-sizing: border-box;
+          padding: 30px;
+          border-bottom: solid 1px var(--accent-color);
+          textarea {
+            width: 100%;
+            height: 70%;
+            resize: none;
+            outline: none;
+            font-size: 22px;
+            &::placeholder {
+              font-size: 22px;
+            }
+          }
+        }
+        // отправить
+        .send {
+          padding: 10px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // добавить фото
+          .photo {
+            cursor: pointer;
+            img {
+              width: 37px;
+              opacity: 0.5;
+            }
+          }
+          // кнопка отправить
+          .publish {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: var(--scrollbar-color);
+            padding: 5px;
+          }
+        }
+      }
+    }
 
 }

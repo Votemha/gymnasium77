@@ -190,3 +190,122 @@
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
+.mainContent .popupPosts {
+  position: fixed;
+  left: 0;
+  top: 0%;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.4862745098);
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mainContent .popupPosts .content {
+  width: clamp(200px, 50vw, 988px);
+  height: clamp(246px, 80vh, 900px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--prop-color);
+  border-radius: 30px;
+}
+.mainContent .popupPosts .content .title {
+  background-color: var(--bg-color);
+  height: 100px;
+  border-radius: 30px 30px 0 0;
+  border-bottom: solid 1px var(--accent-color);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+.mainContent .popupPosts .content .title .cancelPosts {
+  position: absolute;
+  right: 10px;
+  font-size: 22px;
+  color: rgb(168, 32, 32);
+  cursor: pointer;
+  padding: 10px;
+}
+.mainContent .popupPosts .content .title .date {
+  margin-left: 30px;
+  padding-top: 10px;
+  font-size: 15px;
+}
+.mainContent .popupPosts .content .title .textTitle {
+  margin-left: 30px;
+  padding-top: 10px;
+  font-size: 26px;
+  font-weight: 500;
+}
+.mainContent .popupPosts .content .message {
+  width: clamp(200px, 50vw, 988px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 30px;
+  border-bottom: solid 1px var(--accent-color);
+}
+.mainContent .popupPosts .content .message textarea {
+  width: 100%;
+  height: 70%;
+  resize: none;
+  outline: none;
+  font-size: 22px;
+}
+.mainContent .popupPosts .content .message textarea::-webkit-input-placeholder {
+  font-size: 22px;
+}
+.mainContent .popupPosts .content .message textarea::-moz-placeholder {
+  font-size: 22px;
+}
+.mainContent .popupPosts .content .message textarea:-ms-input-placeholder {
+  font-size: 22px;
+}
+.mainContent .popupPosts .content .message textarea::-ms-input-placeholder {
+  font-size: 22px;
+}
+.mainContent .popupPosts .content .message textarea::placeholder {
+  font-size: 22px;
+}
+.mainContent .popupPosts .content .send {
+  padding: 10px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mainContent .popupPosts .content .send .photo {
+  cursor: pointer;
+}
+.mainContent .popupPosts .content .send .photo img {
+  width: 37px;
+  opacity: 0.5;
+}
+.mainContent .popupPosts .content .send .publish {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: var(--scrollbar-color);
+  padding: 5px;
+}

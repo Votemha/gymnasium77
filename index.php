@@ -75,7 +75,6 @@
                     </form>
                 
                 </div>
-                
                 <!-- основной бекенд профиля -->
                 <?php
                     // создание переменных профиля
@@ -100,20 +99,58 @@
                     }
                 ?>
 
+
+
+
                 <!-- разделитель -->
                 <div class="decider"></div>
             </div>
         </div>
 
+
+
+
+
         <!-- посты -->
         <div class="posts">
+
             <div class="newPosts">
                 <span>+</span><p>Новый пост...</p>
             </div>
+
+            <form action="" method="POST">
+                <div class="popupPosts" style="display:none;">
+                    <!-- основной контент постов -->
+                    <div class="content">
+                        <!-- название -->
+                        <div class="title">
+                            <div class="cancelPosts">x</div>
+                            <div class="date"><?=$dateRu?></div>
+                            <div class="textTitle"><p>Добавить новый пост</p></div>
+                        </div>
+                        <!-- сообщение -->
+                        <div class="message">
+                            <textarea class="messageText" name="message" placeholder="Сообщение..."></textarea>
+                        </div>
+                        <!-- отправить -->
+                        <div class="send">
+                            <div class="photo">
+                                <img src="img/photo.png" alt="добавить фото" title="добавить фото">
+                            </div>
+                            <div class="publish">
+                                опубликовать
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="allPosts"></div>
         </div>
 
     </div>
+
+
+
 
     <!-- скрипты -->
     <script>
@@ -160,8 +197,16 @@
 
 
 
-        // посты
-        
+        // посты 
+        const newPosts = document.querySelector(".newPosts");
+        const popupPosts = document.querySelector(".popupPosts");
+        const cancelPosts = document.querySelector(".cancelPosts");
+        newPosts.addEventListener("click", function(e) {
+            popupPosts.style.display = "flex";
+        });
+        cancelPosts.addEventListener("click", function(e) {
+            popupPosts.style.display = "none";
+        });
     </script>
 
     <!-- Продолжение основы -->
