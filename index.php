@@ -31,6 +31,7 @@
 
         // временное подключение email пользователя
         $email = 'admin@mail.ru';
+        $emailUser = 'votemha2.artem@gmail.com';
 
         // достём все данные пользователя из базы данных
         $res = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email'");
@@ -146,29 +147,44 @@
                 </div>
             </form>
             
+            
+            <!-- посты на странице -->
             <?php
+                // получаем все посты и превращаем их в матричный массив
                 $posts = mysqli_query($mysql, "SELECT * FROM `posts` WHERE `email` = '$email'");
                 $posts = mysqli_fetch_All($posts);
-
+                
+                // запускаем перебор всего массива в обратном порядке
                 for($i=count($posts)-1; $i>=0; $i--) {
             ?>
-            <div class="allPosts">
-                <div class="post">
-                    <div class="datePost">
-                        <?=$posts[$i][1]?> 
-                    </div>
-                    <div class="text">
-                        <p>
-                            <?=$posts[$i][2]?>    
-                        </p>
-                    </div>
-                    <div class="like">
-                        <span>+</span>
-                        <p><?=$posts[$i][5]?></p>
-                        <span>-</span>
+            <!-- форма для лайков -->
+            <form action="backend/like.php" method="POST">
+                <!-- передаём id поста -->
+                <input type="text" name="id" style="display:none;" value="<?=$posts[$i][0]?>">
+                <input type="text" name="email" style="display:none;" value="<?=$email?>">
+                <input type="text" name="emailUser" style="display:none;" value="<?=$emailUser?>">
+                <!-- сам пост -->
+                <div class="allPosts">
+                    <div class="post">
+                        <!-- дата -->
+                        <div class="datePost">
+                            <?=$posts[$i][1]?> 
+                        </div>
+                        <!-- сообщение поста -->
+                        <div class="text">
+                            <p>
+                                <?=$posts[$i][2]?>    
+                            </p>
+                        </div>
+                        <!-- лайки -->
+                        <div class="like">
+                            <button name="like" id="plus">+</button>
+                            <p><?=$posts[$i][5]?></p>
+                            <button name="dislike" id="minus">-</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
             <?php
                 }
             ?>
@@ -235,6 +251,13 @@
             popupPosts.style.display = "flex";
         });
         cancelPosts.addEventListener("click", function(e) {
+            popupPosts.style.display = "none";
+        });
+        // лайки
+        const like = document.querySelector(".like");
+        const plus = document.querySelector("#plus");
+        const minus = document.querySelector("#minus");
+        plus.addEventListener("click", function(e) {
             popupPosts.style.display = "none";
         });
     </script>

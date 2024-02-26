@@ -284,6 +284,7 @@
         background-color: var(--prop-color);
         border-radius: 30px;
         position: relative;
+        box-sizing: border-box;
         .datePost {
           font-size: 13px;
           left: 25px;
@@ -296,14 +297,26 @@
           padding: 40px;
           border-radius: 30px;
           border-bottom: solid 1px var(--accent-color);
+          p {
+            -webkit-hyphens: manual;
+            -ms-hyphens: manual;
+            hyphens: manual;
+            overflow-wrap: break-word;
+          }
         }
         .like {
           display: flex;
           padding: 10px 30px;
-          span {
+          button {
             font-size: 30px;
-            padding: 0 20px;
+            padding: 0 10px;
+            margin: 0 10px;
+            border-radius: 50px;
             cursor: pointer;
+            transition: 0.1s;
+            &:hover {
+              background-color: var(--accent-color);
+            }
           }
           p {
             display: flex;
