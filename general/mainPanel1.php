@@ -22,13 +22,17 @@
         $dateRu = $dateRu . date('j.0n.y');
     }
 
-    include 'db.php';
 ?>
 
 
 
 
-
+<!-- <script>
+        var results = document.cookie.match(/scroll=(.+?)(;|$)/)
+        var scrolling = results['input'].split('; ')[3].substr(7);
+        console.log(scrolling)
+        window.scrollTo(0, scrolling)
+    </script> -->
 <!-- освнова для всех страниц (с nav, news, schedule) -->
 <div class="main">
     <!-- левый блок -->
@@ -38,15 +42,39 @@
             <div class="nav">
                 <div class="navContent">
                     <div class="<?=$profile?>" onclick="location.href='<?=$profileClick?>';">Профиль</div>
+                    <div class="<?=$rec?>" onclick="location.href='<?=$recClick?>';">Рекомендации</div>
                     <div class="<?=$class?>" onclick="location.href='<?=$classClick?>';">Мой класс</div>
                     <div class="<?=$schedule?>" onclick="location.href='<?=$scheduleClick?>';">Расписание</div>
                     <div class="<?=$news?>" onclick="location.href='<?=$newsClick?>';">Новости</div>
-                    <div class="<?=$event?>" onclick="location.href='<?=$eventClick?>';">Мероприятия</div>
                     <div class="styled">Тема</div>
                     <script>
                         const styled = document.querySelector(".styled")
                         const root = document.querySelector(":root")
-                        let i = 0;
+                        var results = document.cookie.match(/theme=(.+?)(;|$)/)
+                        function hasCookie(name) {
+                            return document.cookie.split(';').some(c => c.trim().startsWith(name + '='));
+                        }
+                        let i = 0
+                        if (hasCookie('theme')) {
+                            if (results[1] == 'white'){
+                                root.style.setProperty('--bg-color', '#E6ECF2')
+                                root.style.setProperty('--prop-color', '#FFFFFF')
+                                root.style.setProperty('--accent-color', '#D9D9D9')
+                                root.style.setProperty('--text-color', '#000000')
+                                root.style.setProperty('--accent2-color', '#B3B3B3')
+                            } else {
+                                root.style.setProperty('--bg-color', '#212121')
+                                root.style.setProperty('--prop-color', '#444444')
+                                root.style.setProperty('--accent-color', '#2D2D2D')
+                                root.style.setProperty('--text-color', '#FFFFFF')
+                                root.style.setProperty('--accent2-color', '#444444')
+                            }
+                            if (results[1] == 'white') {
+                                i = 0
+                            } else {
+                                i = 1
+                            }
+                        } 
                         styled.addEventListener("click", function(e) {
                             if (i % 2 == 0) {
                                 root.style.setProperty('--bg-color', '#212121')
@@ -54,12 +82,14 @@
                                 root.style.setProperty('--accent-color', '#2D2D2D')
                                 root.style.setProperty('--text-color', '#FFFFFF')
                                 root.style.setProperty('--accent2-color', '#444444')
+                                document.cookie = "theme=black; path=/"; 
                             } else {
                                 root.style.setProperty('--bg-color', '#E6ECF2')
                                 root.style.setProperty('--prop-color', '#FFFFFF')
                                 root.style.setProperty('--accent-color', '#D9D9D9')
                                 root.style.setProperty('--text-color', '#000000')
                                 root.style.setProperty('--accent2-color', '#B3B3B3')
+                                document.cookie = "theme=white; path=/";
                             }
                             ++i
                         })
@@ -100,3 +130,9 @@
                 Left.classList.remove('adaptLeft')
             })
         </script>
+
+        <!-- Сохранение прокрутки страницы
+    <script>
+        console.log(window.pageYOffset)
+        document.cookie = "scroll="+ window.pageYOffset +"; path=/"
+    </script> -->

@@ -2,10 +2,10 @@
 <?php
     include '../db.php';
     $datePost = $_POST["datePop"];
-    $messagePost = $_POST["message"];
-    $email = 'admin@mail.ru';
+    $messagePost = "<pre>" . $_POST["message"] . "</pre>";
+    $login = $_POST['login'];
     if ($messagePost != "") {
-        $mysql->query("INSERT INTO `posts` (`date`, `message`, `email`) VALUES('$datePost', '$messagePost', '$email')");
+        $mysql->query("INSERT INTO `posts` (`date`, `message`, `login`) VALUES('$datePost', '$messagePost', '$login')");
     }
         
     header("Location: ../")

@@ -7,6 +7,7 @@
     --accent2-color: #B3B3B3;
     --scrollbar-color: #dedee8;
     --scrollbar-thumb-color: #4f5764;
+    --accent3-color:rgb(175, 187, 212);
 }
 
 // миксины
@@ -20,11 +21,129 @@
 // основной контен
 .mainContent {
     width: 900px;
-    height: 300px;
     border-radius: 50px;
     box-sizing: border-box;
     color: var(--text-color);
     // основные стили пользователя
+    .settingsImg {
+      position: absolute;
+      right: 20px;
+      cursor: pointer;
+      img {
+        width: 30px;
+      }
+    }
+    .settings {
+      position: fixed;
+      left: 0;
+      top: 0%;
+      width: 100vw;
+      height: 100dvh;
+      background-color: #0000009b;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // основной контент
+      .content {
+        width: clamp(200px, 50vw, 988px);
+        height: clamp(246px, 80vh, 900px);
+        box-sizing: border-box;
+        background-color: var(--prop-color);
+        border-radius: 30px;
+        position: relative;
+        // заглавие
+        .title {
+          background-color: var(--bg-color);
+          // height: 80px; 
+          border-radius: 30px 30px 0 0;
+          border-bottom: solid 1px var(--accent-color);
+          box-sizing: border-box;
+          position: relative;
+          
+          .cancelSettings {
+            position: absolute;
+            right: 10px;
+            font-size: 22px;
+            color: rgb(168, 32, 32);
+            cursor: pointer;
+            padding: 10px;
+          }
+          // дата
+          .date {
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 15px;
+          }
+          // текст заглавия
+          .textTitle {
+            margin-left: 30px;
+            padding: 20px 0;
+            font-size: 26px;
+            font-weight: 500;
+          }
+        }
+        // сообщение
+        .settingsContent {
+          width: clamp(200px, 50vw, 988px);
+          box-sizing: border-box;
+          padding: 20px 30px;
+          border-bottom: solid 1px var(--accent-color);
+          font-size: 26;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .outContent {
+          width: clamp(200px, 50vw, 988px);
+          box-sizing: border-box;
+          padding: 20px 30px;
+          border: solid 1px var(--accent-color);
+          font-size: 26;
+          position: absolute;
+          bottom: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          button {
+            padding: 10px 25px;
+            color: white;
+            border-radius: 20px;
+            background-color: #CC3636;
+            font-size: 20;
+            cursor: pointer;
+          }
+        }
+        // отправить
+        .send {
+          padding: 10px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // добавить фото
+          .photo {
+            cursor: pointer;
+            img {
+              width: 37px;
+              opacity: 0.5;
+            }
+          }
+          // кнопка отправить
+          .publish {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: var(--scrollbar-color);
+            padding: 5px;
+          }
+        }
+      }
+    }
     .profile {
       .user {
         position: relative;
@@ -46,7 +165,7 @@
           border-radius: 50px;
           right: 0;
           width: 770px;
-          height: 424;
+          height: 424px;
           background-color: var(--prop-color);
           z-index: 1;
           padding: 50px 40px;
@@ -78,12 +197,27 @@
             color: var(--text-color);
             font-size: 28px;
             margin-left: 2px;
-            input {
-              width: 55px;
-              @include inputStyle;
-              font-size: 28px;
-              margin-top: 5px;
-            }
+              select {
+                margin-top: 5px;
+                width: 55px;
+                min-width: 50px;
+                border: 1px solid var(--text-color);
+                margin-bottom: 30px;
+                height: 30px;
+                border-radius: 50px;
+                color: var(--text-color);
+                padding-left: 10px;
+                font-size: 16px;
+                margin-right: 10px;
+                background-color: var(--prop-color);
+                &::-ms-value {
+                  color: var(--text-color);
+                }
+                option {
+                  color: var(--text-color);
+                  font-size: 16px;
+                }
+              }
           }
           // описание
           .descriptionUser {
@@ -241,6 +375,8 @@
             resize: none;
             outline: none;
             font-size: 22px;
+            background-color: var(--prop-color);
+            color: var(--text-color);
             &::placeholder {
               font-size: 22px;
             }
@@ -295,37 +431,150 @@
         }
         .text {
           padding: 40px;
+          padding-top: 50px;
           border-radius: 30px;
           border-bottom: solid 1px var(--accent-color);
-          p {
+          pre {
+            white-space: pre-wrap;
             -webkit-hyphens: manual;
             -ms-hyphens: manual;
             hyphens: manual;
             overflow-wrap: break-word;
           }
         }
-        .like {
+        .bottomPost {
           display: flex;
-          padding: 10px 30px;
-          button {
-            font-size: 30px;
-            padding: 0 10px;
-            margin: 0 10px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.1s;
-            &:hover {
+          justify-content: space-between;
+          box-sizing: border-box;
+          .like {
+            display: flex;
+            padding: 10px 30px;
+            #minus, #plus, #minusPressed, #plusPressed {
+              font-size: 30px;
+              padding: 0 15px;
+              margin: 0 10px;
+              border-radius: 50px;
+              cursor: pointer;
+              transition: 0.1s;
+              color: var(--text-color);
+              &:hover {
+                background-color: var(--accent3-color);
+              }
+            }
+            #minus, #plus {
               background-color: var(--accent-color);
+              &:hover {
+                background-color: var(--accent3-color);
+              }
+            }
+            #minus, #minusPressed {
+              padding: 0 17px;
+            }
+            #minusPressed, #plusPressed {
+              background-color: var(--accent3-color);
+            }
+            p {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 22px;
             }
           }
-          p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
+          .del {
+            padding: 20px 45px;
+            cursor: pointer;
+            background-color: transparent;
+            img {
+              width: 25px;
+              opacity: 0.5;
+            }
           }
         }
       }
     }
 
+}
+
+// авторизация
+.sign {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  .signUp {
+    .signText {
+      text-align: center;
+      font-size: 64px;
+      margin: 40px;
+    }
+    .content {
+      background-color: var(--prop-color);
+      padding: 80px 200px;
+      min-height: 400px;
+      border-radius: 50px;
+      form {
+        input {
+          width: 100%;
+          min-width: 250px;
+          border: 1px solid var(--text-color);
+          margin-bottom: 30px;
+          height: 30px;
+          border-radius: 50px;
+          color: var(--text-color);
+          padding-left: 10px;
+          font-size: 16px;
+          &::placeholder {
+            color: var(--text-color);
+            font-size: 16px;
+          }
+        }
+        .numberClass {
+          select {
+            margin-top: 5px;
+            width: 55px;
+            min-width: 50px;
+            border: 1px solid var(--text-color);
+            margin-bottom: 30px;
+            height: 30px;
+            border-radius: 50px;
+            color: var(--text-color);
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            &::placeholder {
+              color: var(--text-color);
+              font-size: 16px;
+            }
+          }
+        }
+        .butSign {
+          position: relative;
+          button {
+            position: absolute;
+            right: 0;
+            padding: 5px 45px;
+            border-radius: 30px;
+            font-size: 18px;
+            background-color: var(--scrollbar-color);
+            cursor: pointer;
+          }
+        }
+        .textSign {
+          margin-top: 80px;
+          p {
+            color: #17337A;
+            cursor: pointer;
+            margin-top: 10px;
+          }
+          .Error {
+            color:rgb(168, 32, 32);
+          }
+          .Success {
+            color: green;
+          }
+        }
+      }
+    }
+  }
 }

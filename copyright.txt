@@ -3,3 +3,5 @@
 <a href="https://www.flaticon.com/ru/free-icons/" title="карандаш иконки">Карандаш иконки от Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/ru/free-icons/" title="камера иконки">Камера иконки от Good Ware - Flaticon</a>
+
+<a href="https://www.flaticon.com/ru/free-icons/" title="передача иконки">Передача иконки от Gregor Cresnar - Flaticon</a>
