@@ -41,12 +41,12 @@
                 <!-- Войти в аккаунт -->
                 <form id="signIn" action="backend/signIn.php" method="POST" style="display:none">
                     <input type="text" name="login" placeholder="Логин">
-                    <input type="text" name="password" placeholder="Пароль">
+                    <input type="password" name="password" placeholder="Пароль">
                     <div class="butSign"><button>войти</button></div>
                     <div class="textSign">
                         <p>Забыли пароль?</p>
                         <p id="signUpButton">Нет аккаунта? Зарегистрируйтесь!</p>
-                        <p><?=$_SESSION['ErrorSignUp'] . $_SESSION['SuccessSignUp']?></p>
+                        <p><?=$_SESSION['ErrorSignUp']?></p>
                     </div>
                 </form>
 
@@ -94,7 +94,6 @@
                     <div class="textSign">
                         <p id="signInButton">Есть аккаунт? Войдите!</p>
                         <span class="Error"><?=$_SESSION['ErrorSignUp']?></span>
-                        <span class="Success"><?=$_SESSION['SuccessSignUp']?></span>
                     </div>
                 </form>
 

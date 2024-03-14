@@ -47,11 +47,20 @@
         header('Location: ../');
         exit();
     } else {
+        // создаем сессии для регистрации
         $password = password_hash($password1, PASSWORD_DEFAULT);
-        $mysql->query("INSERT INTO `users` (`name`, `surname`, `numberClass`, `letterClass`, `email`, `login`, `password`) VALUES('$name', '$surname', '$numberClass', '$letterClass', '$email', '$login', '$password')");
         $_SESSION['SuccessSignUp'] = "Вы успешно зарегистрировались";
-        setcookie('login', $login, time()+60*60*24*365*10, "/");
-        header("Location: ../");
+        $_SESSION['email'] = $email;
+        $_SESSION['login'] = $login;
+        $_SESSION['name'] = $name;
+        $_SESSION['surname'] = $surname;
+        $_SESSION['numberClass'] = $numberClass;
+        $_SESSION['letterClass'] = $letterClass;
+        $_SESSION['surname'] = $surname;
+        $_SESSION['numberClass'] = $numberClass;
+        $_SESSION['password'] = $password;
+        // проверка почты
+        header("Location: ../backend/emailCode.php");
         exit();
     }
 

@@ -1,0 +1,133 @@
+:root {
+  --bg-color: #E6ECF2;
+  --prop-color: #FFFFFF;
+  --accent-color: #D9D9D9;
+  --text-color: #000000;
+  --accent2-color: #B3B3B3;
+  --scrollbar-color: #dedee8;
+  --scrollbar-thumb-color: #4f5764;
+  --accent3-color:rgb(175, 187, 212);
+}
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(../font/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+.mainContent {
+  background-color: var(--bg-color);
+  width: 100vw;
+  height: 100dvh;
+}
+.mainContent .email {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mainContent .email p {
+  margin-top: 50px;
+  font-size: clamp(15px, 5vw, 45px);
+}
+.mainContent .email .content {
+  background-color: var(--prop-color);
+  padding: clamp(5px, 5vw, 50px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: clamp(5px, 5vw, 30px);
+  margin: 10px;
+  position: relative;
+}
+.mainContent .email .content .arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  cursor: pointer;
+}
+.mainContent .email .content p {
+  margin: 0;
+}
+.mainContent .email .content .mail {
+  font-size: clamp(10px, 5vw, 20px);
+  color: var(--accent2-color);
+  margin-top: clamp(10px, 5vw, 30px);
+}
+.mainContent .email .content .mail span {
+  border: solid 1px var(--accent2-color);
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+}
+.mainContent .email .content .textCode {
+  margin: 10px;
+  font-size: clamp(15px, 5vw, 35px);
+}
+.mainContent .email .content .inpCode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mainContent .email .content .inpCode input {
+  margin-top: clamp(10px, 5vw, 30px);
+  border: solid 1px var(--text-color);
+  font-size: clamp(15px, 5vw, 35px);
+  width: clamp(50px, 17vw, 120px);
+  color: var(--text-color);
+  padding: 15px;
+}
+.mainContent .email .content .inpCode input::-webkit-input-placeholder {
+  color: var(--accent2-color);
+}
+.mainContent .email .content .inpCode input::-moz-placeholder {
+  color: var(--accent2-color);
+}
+.mainContent .email .content .inpCode input:-ms-input-placeholder {
+  color: var(--accent2-color);
+}
+.mainContent .email .content .inpCode input::-ms-input-placeholder {
+  color: var(--accent2-color);
+}
+.mainContent .email .content .inpCode input::placeholder {
+  color: var(--accent2-color);
+}
+.mainContent .email .content .inpCode .done {
+  background-color: var(--bg-color);
+  border: 0;
+  font-size: clamp(5px, 5vw, 15px);
+  color: var(--text-color);
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 5px;
+}
+.mainContent .email .content .addText {
+  margin-top: 10px;
+  display: block;
+  margin-right: clamp(5px, 5vw, 30px);
+  color: var(--accent2-color);
+  font-size: clamp(5px, 5vw, 15px);
+}
