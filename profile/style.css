@@ -7,6 +7,10 @@
   --scrollbar-color: #dedee8;
   --scrollbar-thumb-color: #4f5764;
   --accent3-color:rgb(175, 187, 212);
+  --post-color: #BECDDD;
+  --navMobileBg-color: #B8BEC3;
+  --navMobileAccent-color: #CECECE;
+  --opacityImg: 0.5;
 }
 
 .mainContent {
@@ -43,7 +47,6 @@
           align-items: center;
 }
 .mainContent .settings .content {
-  width: clamp(200px, 50vw, 988px);
   height: clamp(246px, 80vh, 900px);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -79,7 +82,6 @@
   font-weight: 500;
 }
 .mainContent .settings .content .settingsContent {
-  width: clamp(200px, 50vw, 988px);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 20px 30px;
@@ -94,9 +96,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  cursor: pointer;
 }
 .mainContent .settings .content .outContent {
-  width: clamp(200px, 50vw, 988px);
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 20px 30px;
@@ -139,7 +142,7 @@
 }
 .mainContent .settings .content .send .photo img {
   width: 37px;
-  opacity: 0.5;
+  opacity: var(--opacityImg);
 }
 .mainContent .settings .content .send .publish {
   cursor: pointer;
@@ -179,6 +182,9 @@
       -ms-flex-align: center;
           align-items: center;
   z-index: 2;
+}
+.mainContent .profile .user .avatar img {
+  opacity: var(--opacityImg);
 }
 .mainContent .profile .user .man {
   position: absolute;
@@ -446,7 +452,7 @@
 }
 .mainContent .popupPosts .content .send .photo img {
   width: 37px;
-  opacity: 0.5;
+  opacity: var(--opacityImg);
 }
 .mainContent .popupPosts .content .send .publish {
   cursor: pointer;
@@ -478,7 +484,7 @@
   left: 25px;
   top: 10px;
   color: var(--text-color);
-  opacity: 0.5;
+  opacity: var(--opacityImg);
   position: absolute;
 }
 .mainContent .allPosts .post .text {
@@ -553,7 +559,7 @@
 }
 .mainContent .allPosts .post .bottomPost .del img {
   width: 25px;
-  opacity: 0.5;
+  opacity: var(--opacityImg);
 }
 
 .sign {

@@ -6,7 +6,11 @@
   --accent2-color: #B3B3B3;
   --scrollbar-color: #dedee8;
   --scrollbar-thumb-color: #4f5764;
+  --accent3-color:rgb(175, 187, 212);
   --post-color: #BECDDD;
+  --navMobileBg-color: #B8BEC3;
+  --navMobileAccent-color: #CECECE;
+  --opacityImg: 0.5;
 }
 
 * {
@@ -191,7 +195,7 @@ a {
 }
 .main .burger {
   width: 50px;
-  opacity: 50%;
+  opacity: var(--opacityImg);
   -webkit-transform: translate(-10000px);
           transform: translate(-10000px);
   cursor: pointer;
@@ -208,6 +212,60 @@ a {
   color: rgb(139, 7, 7);
   cursor: pointer;
   display: none;
+}
+
+.mobileNav {
+  position: fixed;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 3;
+  bottom: 0;
+  display: none;
+}
+.mobileNav .contentMob {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--navMobileBg-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 40px 40px 0 0;
+  padding: 0 10px;
+}
+.mobileNav .contentMob img {
+  opacity: var(--opacityImg);
+  width: clamp(30px, 5vw, 50px);
+}
+.mobileNav .contentMob span {
+  opacity: var(--opacityImg);
+  font-size: clamp(25px, 5vw, 32px);
+  font-weight: 600;
+}
+.mobileNav .contentMob div {
+  padding: 20px;
+  cursor: pointer;
+}
+.mobileNav .contentMob .newsMob img {
+  margin: 5px 0 0 5px;
+  width: clamp(35px, 6vw, 60px);
+}
+.mobileNav .contentMob .profileMob {
+  border: 0;
+}
+.mobileNav .contentMob .deciderMob {
+  border: solid 1px rgba(0, 0, 0, 0.158);
+  width: 0;
+  padding: 0;
+  height: 60px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -250,4 +308,106 @@ a {
   left: 20px;
   background-color: var(--bg-color);
   z-index: 3;
+}
+
+@media screen and (max-width: 1000px) {
+  .main .content .burger {
+    display: none;
+  }
+  .main .adaptLeft {
+    -webkit-transform: translate(-10000px);
+            transform: translate(-10000px);
+    display: none;
+  }
+  .mobileNav {
+    display: block;
+  }
+  .main {
+    min-height: 1000px;
+  }
+  .main .mainContent {
+    margin-bottom: 100px;
+    padding: 0 164px;
+  }
+  .main .mainContent .settingsImg {
+    top: 10px;
+  }
+  .main .mainContent .posts .newPosts {
+    margin-top: 30px;
+  }
+  .main .mainContent .profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .main .mainContent .profile .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: clamp(543px, 100vw, 900px);
+  }
+  .main .mainContent .profile .user .avatar {
+    position: absolute;
+    right: 0;
+    border-radius: 30px;
+    width: clamp(271px, 51vw, 320px);
+    height: clamp(292px, 51vw, 290px);
+  }
+  .main .mainContent .profile .user .avatar img {
+    width: clamp(244px, 50vw, 260px);
+  }
+  .main .mainContent .profile .user .decider {
+    display: none;
+  }
+  .main .mainContent .profile .user .man {
+    position: relative;
+    width: 100%;
+    height: clamp(292px, 51vw, 290px);
+    padding: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .main .mainContent .profile .user .man form {
+    width: 200px;
+  }
+  .main .mainContent .profile .user .man .pencil {
+    position: absolute;
+    left: 10px;
+    top: 19px;
+    right: auto;
+  }
+  .main .mainContent .profile .user .man .buttonOk, .main .mainContent .profile .user .man #cancel {
+    margin-top: 10px;
+    position: static;
+  }
+  .main .mainContent .profile .user .man #cancel {
+    position: relative;
+    top: -35px;
+    left: -25px;
+  }
+  .main .mainContent .profile .user .man .name input {
+    font-size: clamp(20px, 3vw, 24px);
+  }
+  .main .mainContent .profile .user .man .nameDescr select {
+    margin-bottom: 0;
+  }
+  .main .mainContent .profile .user .man span {
+    font-size: clamp(20px, 3vw, 24px);
+  }
+  .main .mainContent .profile .user .man p {
+    font-size: clamp(15px, 3vw, 20px);
+  }
+  .main .mainContent .profile .user .man .description textarea {
+    font-size: clamp(15px, 3vw, 20px);
+    width: clamp(50px, 50vw, 200px);
+    height: auto;
+  }
 }

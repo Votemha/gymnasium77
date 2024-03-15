@@ -8,6 +8,10 @@
     --scrollbar-color: #dedee8;
     --scrollbar-thumb-color: #4f5764;
     --accent3-color:rgb(175, 187, 212);
+    --post-color: #BECDDD;
+    --navMobileBg-color: #B8BEC3;
+    --navMobileAccent-color: #CECECE;
+    --opacityImg: 0.5;
 }
 
 // миксины
@@ -47,7 +51,6 @@
 
       // основной контент
       .content {
-        width: clamp(200px, 50vw, 988px);
         height: clamp(246px, 80vh, 900px);
         box-sizing: border-box;
         background-color: var(--prop-color);
@@ -86,7 +89,6 @@
         }
         // сообщение
         .settingsContent {
-          width: clamp(200px, 50vw, 988px);
           box-sizing: border-box;
           padding: 20px 30px;
           border-bottom: solid 1px var(--accent-color);
@@ -94,9 +96,10 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          cursor: pointer;
         }
         .outContent {
-          width: clamp(200px, 50vw, 988px);
+          width: 100%;
           box-sizing: border-box;
           padding: 20px 30px;
           border: solid 1px var(--accent-color);
@@ -126,7 +129,7 @@
             cursor: pointer;
             img {
               width: 37px;
-              opacity: 0.5;
+              opacity: var(--opacityImg);
             }
           }
           // кнопка отправить
@@ -158,6 +161,9 @@
           justify-content: center;
           align-items: center;
           z-index: 2;
+          img {
+            opacity: var(--opacityImg);
+          }
         }
         // сам человек
         .man {
@@ -393,7 +399,7 @@
             cursor: pointer;
             img {
               width: 37px;
-              opacity: 0.5;
+              opacity: var(--opacityImg);
             }
           }
           // кнопка отправить
@@ -426,7 +432,7 @@
           left: 25px;
           top: 10px;
           color: var(--text-color);
-          opacity: 0.5;
+          opacity: var(--opacityImg);
           position: absolute;
         }
         .text {
@@ -486,7 +492,7 @@
             background-color: transparent;
             img {
               width: 25px;
-              opacity: 0.5;
+              opacity: var(--opacityImg);
             }
           }
         }

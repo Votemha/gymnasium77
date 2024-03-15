@@ -7,6 +7,10 @@
   --scrollbar-color: #dedee8;
   --scrollbar-thumb-color: #4f5764;
   --accent3-color:rgb(175, 187, 212);
+  --post-color: #BECDDD;
+  --navMobileBg-color: #B8BEC3;
+  --navMobileAccent-color: #CECECE;
+  --opacityImg: 0.5;
 }
 
 .allPosts .post {
@@ -22,7 +26,7 @@
   left: 25px;
   top: 10px;
   color: var(--text-color);
-  opacity: 0.5;
+  opacity: var(--opacityImg);
   position: absolute;
 }
 .allPosts .post .user {
@@ -34,7 +38,7 @@
 }
 .allPosts .post .user img {
   width: 30px;
-  border: solid 1px var(--text-color);
+  border: solid 1px black;
   border-radius: 30px;
   position: relative;
   top: 9px;
@@ -112,5 +116,9 @@
 }
 .allPosts .post .bottomPost .del img {
   width: 25px;
-  opacity: 0.5;
+  opacity: var(--opacityImg);
+}
+
+.main .mainContent {
+  padding: 0;
 }

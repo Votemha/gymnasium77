@@ -1,5 +1,6 @@
 <!-- Дата на русском -->
 <?php
+    session_start();
     if (date('l') == 'Monday') {
         $dateRu = 'ПН - ';
     } elseif (date('l') == 'Tuesday') {
@@ -25,6 +26,25 @@
 ?>
 
 
+<!-- Навигационная панель для телефонов -->
+        <?php
+            $res = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login'");
+            $row = $res->fetch_assoc();
+        ?>
+        <div class="mobileNav">
+            <div class="contentMob">
+                <div class="newsMob <?=$newsMobAdapt?>" onclick="location.href='<?=$newsClick?>';"><img src="../img/news.png" alt="Новости"></div>
+                <div class="deciderMob"></div>
+                <div class="scheduleMob <?=$scheduleMobAdapt?>" onclick="location.href='<?=$scheduleClick?>';"><img src="../img/schedule.png" alt="Расписание"></div>
+                <div class="deciderMob"></div>
+                <div class="recMob <?=$recMobAdapt?>" onclick="location.href='<?=$recClick?>';"><img src="../img/rec.png" alt="Рекомендации"></div>
+                <div class="deciderMob"></div>
+                <div class="myClassMob <?=$myClassMobAdapt?>" onclick="location.href='<?=$classClick?>';"><span><?=$_SESSION['classBar']?></span></div>
+                <div class="deciderMob"></div>
+                <div class="profileMob <?=$profileMobAdapt?>" onclick="location.href='<?=$profileClick?>';"><img src="../img/profile.png" alt="Профиль"></div>
+            </div>
+        </div>
+
 
 
 <!-- <script>
@@ -46,54 +66,6 @@
                     <div class="<?=$class?>" onclick="location.href='<?=$classClick?>';">Мой класс</div>
                     <div class="<?=$schedule?>" onclick="location.href='<?=$scheduleClick?>';">Расписание</div>
                     <div class="<?=$news?>" onclick="location.href='<?=$newsClick?>';">Новости</div>
-                    <div class="styled">Тема</div>
-                    <script>
-                        const styled = document.querySelector(".styled")
-                        const root = document.querySelector(":root")
-                        var results = document.cookie.match(/theme=(.+?)(;|$)/)
-                        function hasCookie(name) {
-                            return document.cookie.split(';').some(c => c.trim().startsWith(name + '='));
-                        }
-                        let i = 0
-                        if (hasCookie('theme')) {
-                            if (results[1] == 'white'){
-                                root.style.setProperty('--bg-color', '#E6ECF2')
-                                root.style.setProperty('--prop-color', '#FFFFFF')
-                                root.style.setProperty('--accent-color', '#D9D9D9')
-                                root.style.setProperty('--text-color', '#000000')
-                                root.style.setProperty('--accent2-color', '#B3B3B3')
-                            } else {
-                                root.style.setProperty('--bg-color', '#212121')
-                                root.style.setProperty('--prop-color', '#444444')
-                                root.style.setProperty('--accent-color', '#2D2D2D')
-                                root.style.setProperty('--text-color', '#FFFFFF')
-                                root.style.setProperty('--accent2-color', '#444444')
-                            }
-                            if (results[1] == 'white') {
-                                i = 0
-                            } else {
-                                i = 1
-                            }
-                        } 
-                        styled.addEventListener("click", function(e) {
-                            if (i % 2 == 0) {
-                                root.style.setProperty('--bg-color', '#212121')
-                                root.style.setProperty('--prop-color', '#444444')
-                                root.style.setProperty('--accent-color', '#2D2D2D')
-                                root.style.setProperty('--text-color', '#FFFFFF')
-                                root.style.setProperty('--accent2-color', '#444444')
-                                document.cookie = "theme=black; path=/"; 
-                            } else {
-                                root.style.setProperty('--bg-color', '#E6ECF2')
-                                root.style.setProperty('--prop-color', '#FFFFFF')
-                                root.style.setProperty('--accent-color', '#D9D9D9')
-                                root.style.setProperty('--text-color', '#000000')
-                                root.style.setProperty('--accent2-color', '#B3B3B3')
-                                document.cookie = "theme=white; path=/";
-                            }
-                            ++i
-                        })
-                    </script>
                 </div>
             </div>
             <!-- расписание -->
@@ -115,6 +87,8 @@
 
             </div>
         </div>
+        
+
         <!-- основной контент страницы -->
         <div class="content">
         <img class="burger" src="../img/icon-menu.png" alt="">
@@ -130,9 +104,3 @@
                 Left.classList.remove('adaptLeft')
             })
         </script>
-
-        <!-- Сохранение прокрутки страницы
-    <script>
-        console.log(window.pageYOffset)
-        document.cookie = "scroll="+ window.pageYOffset +"; path=/"
-    </script> -->

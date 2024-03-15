@@ -135,6 +135,7 @@
     <?php
         // присвоение стиля выбраной страницы
         $profile = "this";
+        $newsMobAdapt = "thisMod";
 
         // ссылки на другие страницы
         $profileClick = "";
@@ -155,6 +156,8 @@
         // достём все данные пользователя из базы данных
         $res = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login'");
         $row = $res->fetch_assoc();
+        $classBar = $row['numberClass'] . $row['letterClass'];
+        $_SESSION['classBar'] = $classBar;
 
         $page = '../';
     ?>
@@ -178,6 +181,10 @@
                         </div>
                         <div class="settingsContent">
                             <p>Поменять пароль</p>
+                            <span><img src="img/arrow.png" alt=">"></span>
+                        </div>
+                        <div class="settingsContent" id="styled">
+                            <p>Тема</p>
                             <span><img src="img/arrow.png" alt=">"></span>
                         </div>
                         <form action="backend/delete.php" method="POST">

@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php  
+        session_start();
         include '../db.php';
         // присвоение стиля выбраной страницы
         $rec = "this";

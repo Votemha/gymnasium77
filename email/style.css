@@ -7,6 +7,10 @@
   --scrollbar-color: #dedee8;
   --scrollbar-thumb-color: #4f5764;
   --accent3-color:rgb(175, 187, 212);
+  --post-color: #BECDDD;
+  --navMobileBg-color: #B8BEC3;
+  --navMobileAccent-color: #CECECE;
+  --opacityImg: 0.5;
 }
 
 * {
