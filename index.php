@@ -12,6 +12,7 @@
         include 'db.php';
         // откртие сессий
         session_start();
+        $_SESSION['pageSign'] = "email";
 
         $hasLogin = 1;
         if ($_COOKIE['login'] != NULL) {
@@ -31,7 +32,7 @@
         }
         if ($hasLogin == 1) {
     ?>
-    <!-- Если чеовек не вошёл в аккаунт -->
+    <!-- Если человек не вошёл в аккаунт -->
     <div class="sign">
         <div class="signUp">
             <p class="signText" id="signInText" style="display:none">Войти в аккаунт</p>
@@ -39,16 +40,20 @@
             <div class="content">
 
                 <!-- Войти в аккаунт -->
-                <form id="signIn" action="backend/signIn.php" method="POST" style="display:none">
+                <div id="signIn" style="display:none">
+                <form action="backend/signIn.php" method="POST">
                     <input type="text" name="login" placeholder="Логин">
                     <input type="password" name="password" placeholder="Пароль">
-                    <div class="butSign"><button>войти</button></div>
-                    <div class="textSign">
-                        <p>Забыли пароль?</p>
-                        <p id="signUpButton">Нет аккаунта? Зарегистрируйтесь!</p>
-                        <p><?=$_SESSION['ErrorSignUp']?></p>
-                    </div>
+                    <div class="butSign"><button name="signIn" value="12">войти</button></div>
                 </form>
+                    <form action="forgotPass" method="POST">
+                        <div class="textSign">
+                            <button class="forgotPass" name="forgotPass" value="12">Забыли пароль?</button>
+                            <p id="signUpButton">Нет аккаунта? Зарегистрируйтесь!</p>
+                            <p><?=$_SESSION['ErrorSignUp']?></p>
+                        </div>
+                    </form>
+                </div>
 
 
                 <!-- Зарегистрироваться -->
@@ -88,7 +93,7 @@
 
                     <!-- кнопка -->
                         <div class="butSign" name="url" value="<?=$login?>">
-                            <a href="/?votemha"><button>готово</button></a>
+                            <a href="/?votemha"><button name="signIn">готово</button></a>
                         </div>
 
                     <div class="textSign">
@@ -235,7 +240,7 @@
                     <button class="pencil"><img src="../img/pencil.png" alt="изменить данные профиля" title="изменить данные профиля"></button>
                     
                     <form action="" method="post">
-                        <div class="name"><input id="surname" name="surname" type="text" value="<?=$row['surname']?>" placeholder="фамилия" style="outline:none;" readonly>
+                        <div class="name" title="@<?=$login?>"><input id="surname" name="surname" type="text" value="<?=$row['surname']?>" placeholder="фамилия" style="outline:none;" readonly>
                         <input id="name" name="name" type="text" value="<?=$row['name']?>" placeholder="имя" style="outline:none;" readonly></div>
                         <span class="nameDescr">Ученик <span id="classUnchange" style="display:auto"><?=$row['numberClass']?><?=$row['letterClass']?></span>
                             <select id="classChange1" placeholder="<?=$row['numberClass']?>" type="number" name="numberClass" style="display:none" required>
@@ -446,7 +451,14 @@
                                     }
                                 ?>
                             </div>
-                            <button name="del" type="submit" class="del"><img src="img/del.png" alt="удалить" title="удалить"></button>
+                            <span class="del"><img src="img/del.png" alt="удалить" title="удалить"></span>
+                            <div class="popupConfirmation" style="display:none">
+                                <div class="contentPC">
+                                    <div class="titlePC"><h1>Удалить пост?</h1></div>
+                                    <div class="buttonPC"><button class="delOut">Отмена</button><button name="del" type="submit" class="delPC">Удалить</button></div>
+                                </div>
+                                <div class="backPC"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -531,6 +543,25 @@
         const minus = document.querySelector("#minus");
         plus.addEventListener("click", function(e) {
             popupPosts.style.display = "none";
+        });
+
+        // удаление поста
+        const delOut = document.querySelector(".delOut");
+        const delPC = document.querySelector(".delPC");
+        const del = document.querySelector(".del");
+        const backPC = document.querySelector(".backPC");
+        const popupConfirmation = document.querySelector(".popupConfirmation");
+        delOut.addEventListener("click", function(e) {
+            popupConfirmation.style.display = "none";
+        });
+        delPC.addEventListener("click", function(e) {
+            popupConfirmation.style.display = "none";
+        });
+        del.addEventListener("click", function(e) {
+            popupConfirmation.style.display = "flex";
+        });
+        backPC.addEventListener("click", function(e) {
+            popupConfirmation.style.display = "none";
         });
     </script>
 

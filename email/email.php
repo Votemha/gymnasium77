@@ -12,11 +12,16 @@
     $surname = $_SESSION['surname'];
     $numberClass = $_SESSION['numberClass'];
     $password = $_SESSION['password'];
+    $page = $_SESSION['pageSign'];
 
     if (password_verify($codeUser, $codeHash)) {
-        setcookie('login', $login, time()+60*60*24*365*10, "/");
-        $mysql->query("INSERT INTO `users` (`name`, `surname`, `numberClass`, `letterClass`, `email`, `login`, `password`) VALUES('$name', '$surname', '$numberClass', '$letterClass', '$email', '$login', '$password')");
-        header("Location: ../");
+        if($page == "email") {
+            setcookie('login', $login, time()+60*60*24*365*10, "/");
+            $mysql->query("INSERT INTO `users` (`name`, `surname`, `numberClass`, `letterClass`, `email`, `login`, `password`) VALUES('$name', '$surname', '$numberClass', '$letterClass', '$email', '$login', '$password')");
+            header("Location: ../");
+        } else {
+            header("Location: ../forgotPass/forgotNewPass.php");
+        }
     } else {
         $_SESSION['ErrorSignUp'] = "Не правильный код";
         header("Location: ../email");

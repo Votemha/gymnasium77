@@ -47,6 +47,8 @@
           align-items: center;
 }
 .mainContent .settings .content {
+  width: 900px;
+  margin: 0 70px;
   height: clamp(246px, 80vh, 900px);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -561,6 +563,79 @@
   width: 25px;
   opacity: var(--opacityImg);
 }
+.mainContent .allPosts .post .bottomPost .popupConfirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.4117647059);
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: var(--text-color);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mainContent .allPosts .post .bottomPost .popupConfirmation .contentPC {
+  background-color: var(--prop-color);
+  padding: 10px;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 3;
+}
+.mainContent .allPosts .post .bottomPost .popupConfirmation .contentPC .titlePC {
+  border-radius: 30px;
+  padding: 30px 30px 20px 30px;
+  border-bottom: solid 1px var(--accent-color);
+}
+.mainContent .allPosts .post .bottomPost .popupConfirmation .contentPC .buttonPC {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 10px 30px 10px 30px;
+}
+.mainContent .allPosts .post .bottomPost .popupConfirmation .contentPC .buttonPC button {
+  border: 1px solid var(--text-color);
+  background-color: transparent;
+  padding: 10px;
+  color: var(--text-color);
+  border-radius: 30px;
+  cursor: pointer;
+}
+.mainContent .allPosts .post .bottomPost .popupConfirmation .contentPC .buttonPC .delPC {
+  margin-left: 20px;
+  color: #FFF;
+  background-color: rgb(168, 32, 32);
+  border: 1px solid rgb(168, 32, 32);
+}
+.mainContent .allPosts .post .bottomPost .popupConfirmation .backPC {
+  background-color: rgba(0, 0, 0, 0.4117647059);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
 
 .sign {
   background-color: var(--bg-color);
@@ -663,10 +738,14 @@
 .sign .signUp .content form .textSign {
   margin-top: 80px;
 }
-.sign .signUp .content form .textSign p {
+.sign .signUp .content form .textSign p, .sign .signUp .content form .textSign button {
   color: #17337A;
   cursor: pointer;
   margin-top: 10px;
+}
+.sign .signUp .content form .textSign button {
+  background-color: transparent;
+  font-size: 100%;
 }
 .sign .signUp .content form .textSign .Error {
   color: rgb(168, 32, 32);

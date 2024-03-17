@@ -51,6 +51,8 @@
 
       // основной контент
       .content {
+        width: 900px;
+        margin: 0 70px;
         height: clamp(246px, 80vh, 900px);
         box-sizing: border-box;
         background-color: var(--prop-color);
@@ -495,6 +497,61 @@
               opacity: var(--opacityImg);
             }
           }
+          .popupConfirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            background-color: #00000069;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            color: var(--text-color);
+            justify-content: center;
+            align-items: center;
+            .contentPC {
+              background-color: var(--prop-color);
+              padding: 10px;
+              border-radius: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              z-index: 3;
+              .titlePC {
+                border-radius: 30px;
+                padding: 30px 30px 20px 30px;
+                border-bottom: solid 1px var(--accent-color);
+              }
+              .buttonPC {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 30px 10px 30px;
+                button {
+                  border: 1px solid var(--text-color);
+                  background-color: transparent;
+                  padding: 10px;
+                  color: var(--text-color);
+                  border-radius: 30px;
+                  cursor: pointer;
+                }
+                .delPC {
+                  margin-left: 20px;
+                  color: #FFF;
+                  background-color: rgb(168, 32, 32);
+                  border: 1px solid rgb(168, 32, 32);
+                }
+              }
+            }
+            .backPC {
+              background-color: #00000069;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              z-index: 2;
+              cursor: pointer;
+            }
+          }
         }
       }
     }
@@ -568,10 +625,14 @@
         }
         .textSign {
           margin-top: 80px;
-          p {
+          p, button {
             color: #17337A;
             cursor: pointer;
             margin-top: 10px;
+          }
+          button {
+            background-color: transparent;
+            font-size: 100%;
           }
           .Error {
             color:rgb(168, 32, 32);

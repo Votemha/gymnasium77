@@ -36,17 +36,55 @@
         <?php
                 // получаем все посты и превращаем их в матричный массив
                 $posts = mysqli_fetch_All(mysqli_query($mysql, "SELECT * FROM `posts`"));
-                
-                // запускаем перебор всего массива в обратном порядке
+
+                $rec = [];
+
                 for($i=count($posts)-1; $i>=0; $i--) {
-                    $logPostUser = $posts[$i][4];
-                    $userName = mysqli_fetch_All(mysqli_query($mysql, "SELECT * FROM `users` WHERE `login` = '$logPostUser'"));
+                    $logPostUser = $posts[$i][0];
+                    if ($posts[$i][5] >= 0) {
+                        $likesPostUser = $posts[$i][5] * 10;
+                    } else {
+                        $likesPostUser = abs($posts[$i][5]) * 3;
+                    }
+                    mb_internal_encoding("UTF-8");
+                    $datePostUser = mb_substr($posts[$i][1], 5);
+                    $datePostUser = explode('.', $datePostUser);
+                    if ($datePostUser[2] == date('y')) {
+                        if ($datePostUser[1] == date('n')) {
+                            $dateRecPostUser = date('j') - $datePostUser[0] * 5;
+                        } else {
+                            $dateRecPostUser = date('n') - $datePostUser[1] * 3;
+                        }
+                    } else {
+                        if (date('y') - $datePostUser[2] >= 2) {
+                            $dateRecPostUser = 0;
+                            
+                        } else {
+                            $dateRecPostUser = (date('y') - $datePostUser[2]) * 1.2;
+                            
+                        }
+                    }
+                    $recSumPostUser = abs($likesPostUser) + abs($dateRecPostUser);
+                    array_push($rec, array($logPostUser, $recSumPostUser));
+                }
+                foreach ($rec as $key => $row) {
+                    $rec_name[$key] = $row[1];
+                }
+                array_multisort($rec_name, SORT_ASC, $rec);
+                $rec = array_reverse($rec, true);
+
+                // запускаем перебор всего массива в обратном порядке
+                foreach($rec as $post) {
+                    $idPost = $post[0];
+                    $postRec = $mysql->query("SELECT * FROM `posts` WHERE `id` = '$idPost'")->fetch_assoc();
+                    $logPostUser = $postRec['login'];
+                    $userName = $mysql->query("SELECT * FROM `users` WHERE `login` = '$logPostUser'")->fetch_assoc();
             ?>
             <!-- форма для лайков -->
             <form action="../backend/like.php" method="POST">
                 <!-- передаём id поста -->
-                <input type="hidden" name="id" value="<?=$posts[$i][0]?>">
-                <input type="hidden" name="login" value="<?=$posts[$i][4]?>">
+                <input type="hidden" name="id" value="<?=$postRec['id']?>">
+                <input type="hidden" name="login" value="<?=$postRec['login']?>">
                 <input type="hidden" name="emailUser" value="<?=$login?>">
                 <input type="hidden" name="page" value="<?=$page?>">
                 <!-- сам пост -->
@@ -54,28 +92,28 @@
                     <div class="post">
                         <!-- дата -->
                         <div class="datePost">
-                            <?=$posts[$i][1]?> 
+                            <?=$postRec['date']?> 
                         </div>
                         <!-- сообщение поста -->
-                        <a href="../user/?<?=$posts[$i][4]?>">
-                            <div class="user" title="@<?=$posts[$i][4]?>">
-                                <?php if ($userName[0][6] == NULL) { ?>
+                        <a href="../user/?<?=$postRec['login']?>">
+                            <div class="user" title="@<?=$postRec['login']?>">
+                                <?php if ($userName['photo'] == NULL) { ?>
                                 <img src="../img/avatar.png" alt="фото">
                                 <?php }else { ?>
-                                <img src="../img/<?=$userName[0][6]?>" alt="фото">
+                                <img src="../img/<?=$userName['photo']?>" alt="фото">
                                 <?php } ?>
 
 
-                                <span><?=$userName[0][1]?> <?=$userName[0][2]?></span>
+                                <span><?=$userName['name']?> <?=$userName['surname']?></span>
                             </div>
                         </a>
                         <div class="text">
-                            <?=$posts[$i][2]?>
+                            <?=$postRec['message']?>
                         </div>
                         <!-- лайки -->
                         <?php
-                            $idP = $posts[$i][0];
-                            $logLike = $posts[$i][4];
+                            $idP = $postRec['id'];
+                            $logLike = $postRec['login'];
                             // получаем список пользователей, которые поставили лайк, дизлайк
                             $allUserLike = explode(";", $mysql->query("SELECT `usersLike` FROM `posts` WHERE `login` = '$logLike' AND `id` = '$idP'")->fetch_assoc()['usersLike']);
                             $allUserDislike = explode(";", $mysql->query("SELECT `usersDislike` FROM `posts` WHERE `login` = '$logLike' AND `id` = '$idP'")->fetch_assoc()['usersDislike']);
@@ -128,7 +166,7 @@
                                 ?>
 
 
-                                <p><?=$posts[$i][5]?></p>
+                                <p><?=$postRec['likes']?></p>
 
 
                                 
