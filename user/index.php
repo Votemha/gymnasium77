@@ -91,39 +91,6 @@
 
         <!-- посты -->
         <div class="posts">
-
-            <div class="newPosts">
-                <span>+</span><p>Новый пост...</p>
-            </div>
-
-            <form action="backend/posts.php" method="POST">
-                <div class="popupPosts" style="display:none;">
-                    <!-- основной контент постов -->
-                    <div class="content">
-                        <!-- название -->
-                        <div class="title">
-                            <div class="cancelPosts">x</div>
-                            <div class="date"><?=$dateRu?></div>
-                            <div class="textTitle"><p>Добавить новый пост</p></div>
-                        </div>
-                        <!-- сообщение -->
-                        <div class="message">
-                            <textarea class="messageText" name="message" placeholder="Сообщение..."></textarea>
-                        </div>
-                        <!-- отправить -->
-                        <div class="send">
-                            <div class="photo">
-                                <img src="img/photo.png" alt="добавить фото" title="добавить фото">
-                            </div>
-                            <button class="publish">
-                                опубликовать
-                            </button>
-                        </div>
-                        <input type="hidden" name="datePop" value="<?=$dateRu?>">
-                        <input type="hidden" name="login" value="<?=$login?>">
-                    </div>
-                </div>
-            </form>
             
             
             <!-- посты на странице -->

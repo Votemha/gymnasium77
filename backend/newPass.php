@@ -2,9 +2,11 @@
     session_start();
     include '../db.php';
     $email = $_SESSION['email'];
-    $pass1 = $_SESSION['newPass1'];
-    $pass2 = $_SESSION['newPass2'];
-    $login = $mysql->query("SELECT `login` FROM `users` WHERE `email` = 'admin@mail.ru'")->fetch_assoc()['login'];
+    $pass1 = $_POST['newPass1'];
+    $pass2 = $_POST['newPass2'];
+    $login = $mysql->query("SELECT `login` FROM `users` WHERE `email` = '$email'")->fetch_assoc()['login'];
+
+    var_dump($pass1);
 
     if ($pass1 == $pass2) {
         $newPass = password_hash($pass1, PASSWORD_DEFAULT);

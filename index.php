@@ -459,6 +459,26 @@
                                 </div>
                                 <div class="backPC"></div>
                             </div>
+                            <script>
+                                // удаление поста
+                                const delOut = document.querySelector(".delOut");
+                                const delPC = document.querySelector(".delPC");
+                                const del = document.querySelector(".del");
+                                const backPC = document.querySelector(".backPC");
+                                const popupConfirmation = document.querySelector(".popupConfirmation");
+                                delOut.addEventListener("click", function(e) {
+                                    popupConfirmation.style.display = "none";
+                                });
+                                delPC.addEventListener("click", function(e) {
+                                    popupConfirmation.style.display = "none";
+                                });
+                                del.addEventListener("click", function(e) {
+                                    popupConfirmation.style.display = "flex";
+                                });
+                                backPC.addEventListener("click", function(e) {
+                                    popupConfirmation.style.display = "none";
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -541,28 +561,12 @@
         const like = document.querySelector(".like");
         const plus = document.querySelector("#plus");
         const minus = document.querySelector("#minus");
-        plus.addEventListener("click", function(e) {
-            popupPosts.style.display = "none";
-        });
-
-        // удаление поста
-        const delOut = document.querySelector(".delOut");
-        const delPC = document.querySelector(".delPC");
-        const del = document.querySelector(".del");
-        const backPC = document.querySelector(".backPC");
-        const popupConfirmation = document.querySelector(".popupConfirmation");
-        delOut.addEventListener("click", function(e) {
-            popupConfirmation.style.display = "none";
-        });
-        delPC.addEventListener("click", function(e) {
-            popupConfirmation.style.display = "none";
-        });
-        del.addEventListener("click", function(e) {
-            popupConfirmation.style.display = "flex";
-        });
-        backPC.addEventListener("click", function(e) {
-            popupConfirmation.style.display = "none";
-        });
+        if (plus != null) {
+            plus.addEventListener("click", function(e) {
+                popupPosts.style.display = "none";
+            });
+        }
+        
     </script>
 
 
