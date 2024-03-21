@@ -1,0 +1,115 @@
+// переменные
+:root {
+  --bg-color: #E6ECF2;
+  --prop-color: #FFFFFF;
+  --accent-color: #D9D9D9;
+  --text-color: #000000;
+  --accent2-color: #B3B3B3;
+  --scrollbar-color: #dedee8;
+  --scrollbar-thumb-color: #4f5764;
+  --accent3-color:rgb(175, 187, 212);
+  --post-color: #BECDDD;
+  --navMobileBg-color: #B8BEC3;
+  --navMobileAccent-color: #CECECE;
+  --opacityImg: 0.5;
+}
+
+.allPosts {
+    .post {
+      margin-top: 30px;
+      background-color: var(--prop-color);
+      border-radius: 30px;
+      position: relative;
+      box-sizing: border-box;
+      .datePost {
+        font-size: 13px;
+        left: 25px;
+        top: 10px;
+        color: var(--text-color);
+        opacity: var(--opacityImg);
+        position: absolute;
+      }
+      .user {
+        padding: 0 40px;
+        padding-top: 35px;
+        font-size: 18px;
+        color: var(--text-color);
+        font-weight: 550;
+        img {
+          width: 30px;
+          border: solid 1px black;
+          border-radius: 30px;
+          position: relative;
+          top: 9px;
+        }
+      }
+      .text {
+        padding: 40px;
+        padding-top: 20px;
+        border-radius: 30px;
+        border-bottom: solid 1px var(--accent-color);
+        pre {
+          white-space: pre-wrap;
+          -webkit-hyphens: manual;
+          -ms-hyphens: manual;
+          hyphens: manual;
+          overflow-wrap: break-word;
+          color: var(--text-color);
+        }
+      }
+      .bottomPost {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        .like {
+          display: flex;
+          padding: 10px 30px;
+          #minus, #plus, #minusPressed, #plusPressed {
+            font-size: 30px;
+            padding: 0 15px;
+            margin: 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.1s;
+            color: var(--text-color);
+            &:hover {
+              background-color: var(--accent3-color);
+            }
+          }
+          #minus, #plus {
+            background-color: var(--accent-color);
+            &:hover {
+              background-color: var(--accent3-color);
+            }
+          }
+          #minus, #minusPressed {
+            padding: 0 17px;
+          }
+          #minusPressed, #plusPressed {
+            background-color: var(--accent3-color);
+          }
+          p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+          }
+        }
+        .del {
+          padding: 20px 45px;
+          cursor: pointer;
+          background-color: transparent;
+          img {
+            width: 25px;
+            opacity: var(--opacityImg);
+          }
+        }
+      }
+    }
+  }
+
+.main {
+  .mainContent {
+    padding: 0;
+  }
+}

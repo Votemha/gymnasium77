@@ -1,15 +1,647 @@
+// переменные
 :root {
     --bg-color: #E6ECF2;
     --prop-color: #FFFFFF;
     --accent-color: #D9D9D9;
     --text-color: #000000;
-  }
+    --accent2-color: #B3B3B3;
+    --scrollbar-color: #dedee8;
+    --scrollbar-thumb-color: #4f5764;
+    --accent3-color:rgb(175, 187, 212);
+    --post-color: #BECDDD;
+    --navMobileBg-color: #B8BEC3;
+    --navMobileAccent-color: #CECECE;
+    --opacityImg: 0.5;
+}
+
+// миксины
+@mixin inputStyle {
+  color: var(--text-color);
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+// основной контен
 .mainContent {
     width: 900px;
-    height: 300px;
-    background-color: var(--prop-color);
     border-radius: 50px;
-    padding: 20px;
     box-sizing: border-box;
-    color: var(--text-color)
+    color: var(--text-color);
+    // основные стили пользователя
+    .settingsImg {
+      position: absolute;
+      right: 20px;
+      cursor: pointer;
+      img {
+        width: 30px;
+      }
+    }
+    .settings {
+      position: fixed;
+      left: 0;
+      top: 0%;
+      width: 100vw;
+      height: 100dvh;
+      background-color: #0000009b;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // основной контент
+      .content {
+        width: 900px;
+        margin: 0 70px;
+        height: clamp(246px, 80vh, 900px);
+        box-sizing: border-box;
+        background-color: var(--prop-color);
+        border-radius: 30px;
+        position: relative;
+        // заглавие
+        .title {
+          background-color: var(--bg-color);
+          // height: 80px; 
+          border-radius: 30px 30px 0 0;
+          border-bottom: solid 1px var(--accent-color);
+          box-sizing: border-box;
+          position: relative;
+          
+          .cancelSettings {
+            position: absolute;
+            right: 10px;
+            font-size: 22px;
+            color: rgb(168, 32, 32);
+            cursor: pointer;
+            padding: 10px;
+          }
+          // дата
+          .date {
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 15px;
+          }
+          // текст заглавия
+          .textTitle {
+            margin-left: 30px;
+            padding: 20px 0;
+            font-size: 26px;
+            font-weight: 500;
+          }
+        }
+        // сообщение
+        .settingsContent {
+          box-sizing: border-box;
+          padding: 20px 30px;
+          border-bottom: solid 1px var(--accent-color);
+          font-size: 26;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+        }
+        .outContent {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 20px 30px;
+          border: solid 1px var(--accent-color);
+          font-size: 26;
+          position: absolute;
+          bottom: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          button {
+            padding: 10px 25px;
+            color: white;
+            border-radius: 20px;
+            background-color: #CC3636;
+            font-size: 20;
+            cursor: pointer;
+          }
+        }
+        // отправить
+        .send {
+          padding: 10px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // добавить фото
+          .photo {
+            cursor: pointer;
+            img {
+              width: 37px;
+              opacity: var(--opacityImg);
+            }
+          }
+          // кнопка отправить
+          .publish {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: var(--scrollbar-color);
+            padding: 5px;
+          }
+        }
+      }
+    }
+    .profile {
+      .user {
+        position: relative;
+        display: flex;
+        // аватарка
+        .avatar {
+          width: 460px;
+          height: 424px;
+          background-color: var(--accent-color);
+          border-radius: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2;
+          img {
+            opacity: var(--opacityImg);
+          }
+        }
+        // сам человек
+        .man {
+          position: absolute;
+          border-radius: 50px;
+          right: 0;
+          width: 770px;
+          height: 424px;
+          background-color: var(--prop-color);
+          z-index: 1;
+          padding: 50px 40px;
+          padding-left: 370px;
+          box-sizing: border-box;
+            button {
+              position: absolute;
+              right: 10px;
+              cursor: pointer;
+              img {
+                background-color: var(--prop-color);
+                width: 24px;
+              }
+            }
+            // имя
+          .name {
+            display: flex;
+            box-sizing: border-box;
+            flex-flow: row wrap;
+            input {
+              min-width: 100px;
+              @include inputStyle;
+              font-size: 28px;
+              font-weight: 600;
+            }
+          }
+          // класс
+          .nameDescr {
+            color: var(--text-color);
+            font-size: 28px;
+            margin-left: 2px;
+              select {
+                margin-top: 5px;
+                width: 55px;
+                min-width: 50px;
+                border: 1px solid var(--text-color);
+                margin-bottom: 30px;
+                height: 30px;
+                border-radius: 50px;
+                color: var(--text-color);
+                padding-left: 10px;
+                font-size: 16px;
+                margin-right: 10px;
+                background-color: var(--prop-color);
+                &::-ms-value {
+                  color: var(--text-color);
+                }
+                option {
+                  color: var(--text-color);
+                  font-size: 16px;
+                }
+              }
+          }
+          // описание
+          .descriptionUser {
+            color: var(--text-color);
+            font-size: 20px;
+            margin-left: 2px;
+          }
+          .description {
+            textarea {
+            @include inputStyle;
+            border-radius: 30px;
+            padding: 5px;
+            font-size: 20px;
+            font-style: italic;
+            height: 100px;
+            resize: none;
+              &::-webkit-scrollbar {
+                width: 7px;
+                background-color: var(--scrollbar-color);
+              }
+              &::-webkit-scrollbar-thumb {
+                background-color: var(--scrollbar-thumb-color);
+              }
+            }
+          }
+          // кнопка сохранения
+          .buttonOk {
+            position: absolute;
+            bottom: 20px;
+            right: 60px;
+            width: 200px;
+            height: 30px;
+            font-size: 17px;
+            border-radius: 30px;
+            color: var(--text-color);
+            background-color: var(--accent-color);
+          }
+          // кнопка отмены
+          #cancel {
+            position: absolute;
+            bottom: 25px;
+            right: 40px;
+            cursor: pointer;
+            color: red;
+          }
+        }
+        // разделитель
+        .decider {
+          box-sizing: border-box;
+          width: 900px;
+          border-bottom: solid 1px var(--accent-color);
+          height: 452px;
+          border-radius: 50px;
+          position: absolute;
+        }
+      }
+    }
+
+    // посты
+    .posts {
+      .newPosts {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: var(--prop-color);
+        margin-top: 50px;
+        padding: 30px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        cursor: pointer;
+        &:hover {
+          border-radius: 50px;
+          box-shadow: 0 0 10px 0px #0000001d;
+          transition: 0.25s;
+        }
+        span {
+          background-color: var(--accent-color);
+          width: 35px;
+          height: 35px;
+          box-sizing: border-box;
+          border-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+        }
+        p {
+          margin-left: 20px;
+          font-size: 20px;
+        }
+      }
+    }
+
+
+    // посты
+    .popupPosts {
+      position: fixed;
+      left: 0;
+      top: 0%;
+      width: 100vw;
+      height: 100dvh;
+      background-color: #0000009b;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // основной контент
+      .content {
+        width: clamp(200px, 50vw, 988px);
+        height: clamp(246px, 80vh, 900px);
+        box-sizing: border-box;
+        background-color: var(--prop-color);
+        border-radius: 30px;
+        // заглавие
+        .title {
+          background-color: var(--bg-color);
+          height: 100px;
+          border-radius: 30px 30px 0 0;
+          border-bottom: solid 1px var(--accent-color);
+          box-sizing: border-box;
+          position: relative;
+          
+          .cancelPosts {
+            position: absolute;
+            right: 10px;
+            font-size: 22px;
+            color: rgb(168, 32, 32);
+            cursor: pointer;
+            padding: 10px;
+          }
+          // дата
+          .date {
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 15px;
+          }
+          // текст заглавия
+          .textTitle {
+            margin-left: 30px;
+            padding-top: 10px;
+            font-size: 26px;
+            font-weight: 500;
+          }
+        }
+        // сообщение
+        .message {
+          width: clamp(200px, 50vw, 988px);
+          box-sizing: border-box;
+          padding: 30px;
+          border-bottom: solid 1px var(--accent-color);
+          textarea {
+            width: 100%;
+            height: 70%;
+            resize: none;
+            outline: none;
+            font-size: 22px;
+            background-color: var(--prop-color);
+            color: var(--text-color);
+            &::placeholder {
+              font-size: 22px;
+            }
+          }
+        }
+        // отправить
+        .send {
+          padding: 10px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // добавить фото
+          .photo {
+            cursor: pointer;
+            img {
+              width: 37px;
+              opacity: var(--opacityImg);
+            }
+          }
+          // кнопка отправить
+          .publish {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: var(--scrollbar-color);
+            padding: 5px;
+          }
+        }
+      }
+    }
+
+
+    // все посты
+    .allPosts {
+      .post {
+        margin-top: 30px;
+        background-color: var(--prop-color);
+        border-radius: 30px;
+        position: relative;
+        box-sizing: border-box;
+        .datePost {
+          font-size: 13px;
+          left: 25px;
+          top: 10px;
+          color: var(--text-color);
+          opacity: var(--opacityImg);
+          position: absolute;
+        }
+        .text {
+          padding: 40px;
+          padding-top: 50px;
+          border-radius: 30px;
+          border-bottom: solid 1px var(--accent-color);
+          pre {
+            white-space: pre-wrap;
+            -webkit-hyphens: manual;
+            -ms-hyphens: manual;
+            hyphens: manual;
+            overflow-wrap: break-word;
+          }
+        }
+        .bottomPost {
+          display: flex;
+          justify-content: space-between;
+          box-sizing: border-box;
+          .like {
+            display: flex;
+            padding: 10px 30px;
+            #minus, #plus, #minusPressed, #plusPressed {
+              font-size: 30px;
+              padding: 0 15px;
+              margin: 0 10px;
+              border-radius: 50px;
+              cursor: pointer;
+              transition: 0.1s;
+              color: var(--text-color);
+              &:hover {
+                background-color: var(--accent3-color);
+              }
+            }
+            #minus, #plus {
+              background-color: var(--accent-color);
+              &:hover {
+                background-color: var(--accent3-color);
+              }
+            }
+            #minus, #minusPressed {
+              padding: 0 17px;
+            }
+            #minusPressed, #plusPressed {
+              background-color: var(--accent3-color);
+            }
+            p {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 22px;
+            }
+          }
+          .del {
+            padding: 20px 45px;
+            cursor: pointer;
+            background-color: transparent;
+            img {
+              width: 25px;
+              opacity: var(--opacityImg);
+            }
+          }
+          .popupConfirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            background-color: #00000069;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            color: var(--text-color);
+            justify-content: center;
+            align-items: center;
+            .contentPC {
+              background-color: var(--prop-color);
+              padding: 10px;
+              border-radius: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              z-index: 3;
+              .titlePC {
+                border-radius: 30px;
+                padding: 30px 30px 20px 30px;
+                border-bottom: solid 1px var(--accent-color);
+              }
+              .buttonPC {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 30px 10px 30px;
+                button {
+                  border: 1px solid var(--text-color);
+                  background-color: transparent;
+                  padding: 10px;
+                  color: var(--text-color);
+                  border-radius: 30px;
+                  cursor: pointer;
+                }
+                .delPC {
+                  margin-left: 20px;
+                  color: #FFF;
+                  background-color: rgb(168, 32, 32);
+                  border: 1px solid rgb(168, 32, 32);
+                }
+              }
+            }
+            .backPC {
+              background-color: #00000069;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              z-index: 2;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+}
+
+// авторизация
+.sign {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  .signUp {
+    .signText {
+      text-align: center;
+      font-size: 64px;
+      margin: 40px;
+    }
+    .content {
+      background-color: var(--prop-color);
+      padding: 80px 200px;
+      min-height: 400px;
+      border-radius: 50px;
+      form {
+        input {
+          width: 100%;
+          min-width: 250px;
+          border: 1px solid var(--text-color);
+          margin-bottom: 30px;
+          height: 30px;
+          border-radius: 50px;
+          color: var(--text-color);
+          padding-left: 10px;
+          font-size: 16px;
+          &::placeholder {
+            color: var(--text-color);
+            font-size: 16px;
+          }
+        }
+        .numberClass {
+          select {
+            margin-top: 5px;
+            width: 55px;
+            min-width: 50px;
+            border: 1px solid var(--text-color);
+            margin-bottom: 30px;
+            height: 30px;
+            border-radius: 50px;
+            color: var(--text-color);
+            padding-left: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            &::placeholder {
+              color: var(--text-color);
+              font-size: 16px;
+            }
+          }
+        }
+        .butSign {
+          position: relative;
+          button {
+            position: absolute;
+            right: 0;
+            padding: 5px 45px;
+            border-radius: 30px;
+            font-size: 18px;
+            background-color: var(--scrollbar-color);
+            cursor: pointer;
+          }
+        }
+        .textSign {
+          margin-top: 80px;
+          p, button {
+            color: #17337A;
+            cursor: pointer;
+            margin-top: 10px;
+          }
+          button {
+            background-color: transparent;
+            font-size: 100%;
+          }
+          .Error {
+            color:rgb(168, 32, 32);
+          }
+          .Success {
+            color: green;
+          }
+        }
+      }
+    }
+  }
 }

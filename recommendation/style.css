@@ -1,0 +1,124 @@
+:root {
+  --bg-color: #E6ECF2;
+  --prop-color: #FFFFFF;
+  --accent-color: #D9D9D9;
+  --text-color: #000000;
+  --accent2-color: #B3B3B3;
+  --scrollbar-color: #dedee8;
+  --scrollbar-thumb-color: #4f5764;
+  --accent3-color:rgb(175, 187, 212);
+  --post-color: #BECDDD;
+  --navMobileBg-color: #B8BEC3;
+  --navMobileAccent-color: #CECECE;
+  --opacityImg: 0.5;
+}
+
+.allPosts .post {
+  margin-top: 30px;
+  background-color: var(--prop-color);
+  border-radius: 30px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.allPosts .post .datePost {
+  font-size: 13px;
+  left: 25px;
+  top: 10px;
+  color: var(--text-color);
+  opacity: var(--opacityImg);
+  position: absolute;
+}
+.allPosts .post .user {
+  padding: 0 40px;
+  padding-top: 35px;
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 550;
+}
+.allPosts .post .user img {
+  width: 30px;
+  border: solid 1px black;
+  border-radius: 30px;
+  position: relative;
+  top: 9px;
+}
+.allPosts .post .text {
+  padding: 40px;
+  padding-top: 20px;
+  border-radius: 30px;
+  border-bottom: solid 1px var(--accent-color);
+}
+.allPosts .post .text pre {
+  white-space: pre-wrap;
+  -ms-hyphens: manual;
+  hyphens: manual;
+  overflow-wrap: break-word;
+  color: var(--text-color);
+}
+.allPosts .post .bottomPost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.allPosts .post .bottomPost .like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 30px;
+}
+.allPosts .post .bottomPost .like #minus, .allPosts .post .bottomPost .like #plus, .allPosts .post .bottomPost .like #minusPressed, .allPosts .post .bottomPost .like #plusPressed {
+  font-size: 30px;
+  padding: 0 15px;
+  margin: 0 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  color: var(--text-color);
+}
+.allPosts .post .bottomPost .like #minus:hover, .allPosts .post .bottomPost .like #plus:hover, .allPosts .post .bottomPost .like #minusPressed:hover, .allPosts .post .bottomPost .like #plusPressed:hover {
+  background-color: var(--accent3-color);
+}
+.allPosts .post .bottomPost .like #minus, .allPosts .post .bottomPost .like #plus {
+  background-color: var(--accent-color);
+}
+.allPosts .post .bottomPost .like #minus:hover, .allPosts .post .bottomPost .like #plus:hover {
+  background-color: var(--accent3-color);
+}
+.allPosts .post .bottomPost .like #minus, .allPosts .post .bottomPost .like #minusPressed {
+  padding: 0 17px;
+}
+.allPosts .post .bottomPost .like #minusPressed, .allPosts .post .bottomPost .like #plusPressed {
+  background-color: var(--accent3-color);
+}
+.allPosts .post .bottomPost .like p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 22px;
+}
+.allPosts .post .bottomPost .del {
+  padding: 20px 45px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.allPosts .post .bottomPost .del img {
+  width: 25px;
+  opacity: var(--opacityImg);
+}
+
+.main .mainContent {
+  padding: 0;
+}

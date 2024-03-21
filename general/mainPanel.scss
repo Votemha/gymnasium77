@@ -4,15 +4,32 @@
     --accent-color: #D9D9D9;
     --text-color: #000000;
     --accent2-color: #B3B3B3;
+    --scrollbar-color: #dedee8;
+    --scrollbar-thumb-color: #4f5764;
+    --accent3-color:rgb(175, 187, 212);
+    --post-color: #BECDDD;
+    --navMobileBg-color: #B8BEC3;
+    --navMobileAccent-color: #CECECE;
+    --opacityImg: 0.5;
 }
-
 
 * {
     border: 0;
     padding: 0;
     margin: 0;
     font-family: Montserrat;
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
+
+
+    // изменение скрол бара
+    &::-webkit-scrollbar {
+      width: 15px;
+      background-color: var(--scrollbar-color);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-thumb-color);
+    }
+  
 }
 
 @font-face {
@@ -32,6 +49,7 @@ a {
     box-sizing: border-box;
     overflow: hidden;
     min-height: 2017px;
+    padding-bottom: 30px;
 
     .nav {
         width: 268px;
@@ -61,6 +79,10 @@ a {
                 line-height: normal;
                 margin-top: 10px;
                 cursor: pointer;
+                &:hover {
+                    border-radius: 20px;
+                    box-shadow: 0 0 10px 0px #00000044;
+                }
             }
             div:nth-child(1) {
                 margin-top: 0px;
@@ -69,6 +91,10 @@ a {
                 background: var(--accent-color);
                 font-weight: 500;
                 cursor: auto;
+                &:hover {
+                    border-radius: 20px;
+                    box-shadow: 0 0 10px 0px #00000000;
+                }
             }
         }
     }
@@ -138,10 +164,11 @@ a {
     }
     .burger {
         width: 50px;
-        opacity: 50%;
+        opacity: var(--opacityImg);
         transform: translate(-10000px);
         cursor: pointer;
         z-index: 1;
+        display: none;
     }
     .Left {
         position: relative;
@@ -150,13 +177,65 @@ a {
         position: absolute;
         right: 15px;
         font-size: 30px;
-        color: red;
+        color: rgb(139, 7, 7);
         cursor: pointer;
         display: none;
     }
+
+
+    
 }
 
-
+// мобильнай нав бар
+.mobileNav {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+    bottom: 0;
+    display: none;
+    .contentMob {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: var(--navMobileBg-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-sizing: border-box;
+        border-radius: 40px 40px 0 0;
+        padding: 0 10px;
+        img {
+            opacity: var(--opacityImg);
+            width: clamp(30px, 5vw, 50px);
+        }
+        span {
+            opacity: var(--opacityImg);
+            font-size: clamp(25px, 5vw, 32px);
+            font-weight: 600;
+        }
+        div {
+            padding: 20px;
+            cursor: pointer;
+        }
+        .newsMob {
+            img {
+                margin: 5px 0 0 5px;
+                width: clamp(35px, 6vw, 60px);
+            }   
+        }
+        .profileMob {
+            border: 0;
+        }
+        .deciderMob {
+            border: solid 1px rgba(0, 0, 0, 0.158);
+            width: 0;
+            padding: 0;
+            height: 60px;
+        }
+    }
+}
+// медиа запросы
 @media screen and (max-width: 1600px) {
     .news {
         display: none;
@@ -183,6 +262,9 @@ a {
     .main .close {
         display: block;
     }
+    .main .content .burger {
+        display: block;
+    }
 }
 
 .main .adaptLeft {
@@ -191,5 +273,103 @@ a {
     position: absolute;
     left: 20px;
     background-color: var(--bg-color);
-    z-index: 2;
+    z-index: 3;
+}
+
+@media screen and (max-width: 1000px) {
+    .main .content .burger {
+        display: none;
+    }
+    .main .adaptLeft {
+        transform: translate(-10000px);
+        display: none;
+    }
+    .mobileNav {
+        display: block;
+    }
+    .main {
+        min-height: 1000px;
+        .mainContent {
+            margin-bottom: 100px;
+            padding: 0 164px;
+            .settingsImg {
+                top: 10px;
+            }
+            .posts {
+                .newPosts {
+                    margin-top: 30px;
+                }
+            }
+            .profile {
+                display: flex;
+                justify-content: center;
+                .user {
+                    display: flex;
+                    flex-direction: column;
+                    .avatar {
+                        position: absolute;
+                        right: 0;
+                        border-radius: 30px;
+                        width: clamp(271px, 51vw, 320px);
+                        height: clamp(292px, 51vw, 290px);
+                        img {
+                            width: clamp(244px, 50vw, 260px);
+                        }
+                    }
+                    .decider {
+                        display: none;
+                    }
+                    .man {
+                        position: relative;
+                        width: 100%;
+                        height: clamp(292px, 51vw, 290px);
+                        padding: 30px;
+                        display: flex;
+                        form {
+                            width: 200px;
+                        }
+                        .pencil {
+                            position: absolute;
+                            left: 10px;
+                            top: 19px;
+                            right: auto;
+                        }
+                        .buttonOk, #cancel {
+                            margin-top: 10px;
+                            position: static;
+                        }
+                        #cancel {
+                            position: relative;
+                            top: -35px;
+                            left: -25px;
+                        }
+                        .name {
+                            input {
+                                font-size: clamp(20px, 3vw, 24px);
+                            }
+                        }
+                        .nameDescr {
+                            select {
+                                margin-bottom: 0;
+                            }
+                        }
+                        span {
+                            font-size: clamp(20px, 3vw, 24px);
+                        }
+                        p {
+                            font-size: clamp(15px, 3vw, 20px);
+                        }
+                        .description {
+                            textarea {
+                                font-size: clamp(15px, 3vw, 20px);
+                                width: clamp(50px, 50vw, 200px);
+                                height: auto;
+                            }
+                        }
+                    }
+                    width: clamp(543px, 100vw, 900px);
+                }
+            }
+        }
+    }
 }
